@@ -1,0 +1,85 @@
+<div th:fragment="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul  class="navbar-nav me-auto mb-2 mb-lg-0" style="margin-left: 35%">
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{main-user-page}">Главная страница</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{poster}">Афиша</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{timetable}">Расписание</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{soon}">Скоро</a>
+                    </li>
+                    <li >
+                        <a class="nav-link active" aria-current="page" th:href="@{cinemas}">Кинотеатры</a>
+                    </li>
+                    <li>
+                        <a class="nav-link active" aria-current="page" th:href="@{stock}">Акции</a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a th:href="@{about-cinema}" class="dropbtn" style="position: relative; top: 8px; color: black; text-decoration: none">О кинотеатре</a>
+                        <ul class="dropdown-content" style="position: relative; top: 12px;">
+                            <li><a th:href="@{news}">Новости</a></li>
+                            <li><a th:href="@{vip-hall}">VIP-зал</a></li>
+                            <li><a th:href="@{ad}">Реклама</a></li>
+                            <li><a th:href="@{cafe-bar}">Кафе</a></li>
+                            <li><a th:href="@{children-room}">Детская комната</a></li>
+                            <li><a th:href="@{mobile-apps}">Мобильные приложения</a></li>
+                            <li><a th:href="@{contacts}">Контакты</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                                <ul th:each="newPage : ${newPages}">
+                                    <li><a th:href="'/some-new-page/'+${newPage.id}"><p th:text="${newPage.title}"></p></a></li>
+                                </ul>
+                          </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdow" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Язык
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#">Украинский</a></li>
+                            <li><a class="dropdown-item" href="#">Русский</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a style="position: relative; top: 8px; color: black; text-decoration: none" th:href="@{client-section}">Мой кабинет<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                        </svg></a>
+                    </li>
+                </ul>
+                <div> <input id="search" name="search" placeholder="Поиск..." type="text" data-list=".list"></div>
+                </div>
+            </div>
+        </nav>
+
+
+    <!-- Кнопки, объединенные в группу с помощью класса .btn-group
+    <div class="btn-group">
+        <!- Обычные кнопки ->
+        <button type="button" class="btn btn-warning">Обычная кнопка</button>
+        <button type="button" class="btn btn-danger">Обычная кнопка</button>
+        <!- Кнопка с выпадающим меню ->
+        <div class="btn-group">
+            <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle">
+                Кнопка с выпадающим меню
+                <span class="caret"></span>
+            </button>
+            <!- Выпадающее меню ->
+            <ul class="dropdown-menu">
+                <!- Пункты меню ->
+                <li><a href="#">Пункт 1</a></li>
+                <li><a href="#">Пункт 2</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Пункт 3</a></li>
+            </ul>
+        </div>
+    </div>
+-->
+
+    </div>

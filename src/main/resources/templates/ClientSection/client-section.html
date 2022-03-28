@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style th:insert="blocks/style.html :: style"></style>
+</head>
+<body>
+<header th:insert="blocks/header.html :: header"></header>
+<div style="display: inline-block; margin-left: 400px; margin-top: 200px">
+    <div style="visibility: hidden">
+        <input class="form-check-input" type="checkbox" name="checkForMale">
+        <input type="hidden" name="checkForMale" value="false" >
+    </div>
+    <label class="form-label">
+        Имя
+        <input type="text" name="name" class="form-control"/>
+    </label>
+    <br>
+
+    <label class="form-label">
+        Фамилия
+        <input type="text" name="surname" class="form-control"/>
+    </label>
+    <br>
+
+    <label class="form-label">
+        Псевдоним
+        <input type="text" name="nickname" class="form-control"/>
+    </label>
+    <br>
+
+    <label class="form-label">
+        E-mail
+        <input type="email" name="eMail" class="form-control"/>
+    </label>
+    <br>
+
+    <label class="form-label">
+        Адрес
+        <input type="text" name="adress" class="form-control" placeholder=" г. Киев, ул. Такаято, 1"/>
+    </label>
+    <br>
+
+    <label class="form-label">
+        Пароль
+        <input type="password" name="password" class="form-control"/>
+    </label>
+    <br>
+
+    <label class="form-label">
+        Номер карты
+        <input type="text" name="cardNumber" class="form-control"/>
+    </label>
+    <br>
+
+</div>
+
+<div style="display: inline-block; margin-left: 250px; position: relative; top: -30px">
+    <label style="margin-right: 30px; padding-right: 10px;">
+        Язык
+        <input type="radio" name="language" th:text=" Русский" style="margin-right: 5px; padding-left: 40px; margin-left: 100px" value="1">
+    </label>
+    <label>
+        <input type="radio" name="language" th:text=" Украинский" style="margin-right: 5px;" value="0">
+    </label>
+    <br><br>
+
+    <label style="margin-right: 30px; padding-right: 3px;">
+        Пол
+        <input type="radio" name="gender" th:text=" Мужской" style="margin-right: 5px; padding-right: 35px; margin-left: 107px" value="1">
+    </label>
+    <label>
+        <input type="radio" name="gender" th:text=" Женский" style="margin-right: 5px;" value="0">
+    </label>
+    <br><br>
+
+    <label class="form-label">
+        Телефон
+        <input type="text" name="phoneNumber" class="form-control"/>
+    </label>
+    <br><br>
+
+    <label>
+        Дата рождения
+        <input type="date" name="date" class="form-control mb-2 mt-2" >
+    </label>
+    <br><br>
+
+    <label>
+        Город
+        <select class="form-control" name="city">
+            <option selected="">Выберите город</option>
+            <option>Одесса</option>
+            <option>Киев</option>
+            <option>Львов</option>
+            <option>Днепр</option>
+            <option>Харьков</option>
+        </select>
+    </label>
+    <br><br>
+
+    <label class="form-label">
+        Повторить пароль
+        <input type="password" class="form-control" name="passwordRepeat"/>
+    </label>
+    <br>
+
+</div>
+<span style="display: none"> <input id="localDate" name="localDate"/> </span>
+<br><br><br>
+<div id="error" style="color:red;"></div>
+</body>
+</html>

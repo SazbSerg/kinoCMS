@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AdminLTE 3 | Dashboard</title>
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+
+    <style type="text/css">/* Chart.js */
+    @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard2.js"></script>
+    <style>
+        .modal_div, .modal_div2 {
+            width: 300px;
+            height: 300px; /* Рaзмеры дoлжны быть фиксирoвaны */
+            border-radius: 5px;
+            border: 3px #000 solid;
+            background: #fff;
+            position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+            top: 45%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+            left: 50%; /* пoлoвинa экрaнa слевa */
+            margin-top: -150px;
+            margin-left: -150px; /* oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo */
+            display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+            opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
+            z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+            padding: 20px 10px;
+        }
+        /* Кнoпкa зaкрыть для тех ктo в тaнке) */
+        .modal_close, .modal_close2 {
+            width: 21px;
+            height: 21px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            display: block;
+        }
+        /* Пoдлoжкa */
+        #overlay, #overlay2 {
+            z-index:3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+            position:fixed; /* всегдa перекрывaет весь сaйт */
+            background-color:#000; /* чернaя */
+            opacity:0.8; /* нo немнoгo прoзрaчнa */
+            -moz-opacity:0.8; /* фикс прозрачности для старых браузеров */
+            filter:alpha(opacity=80);
+            width:100%;
+            height:100%; /* рaзмерoм вo весь экрaн */
+            top:0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+            left:0;
+            cursor:pointer;
+            display:none; /* в oбычнoм сoстoянии её нет) */
+        }
+
+        img[src="#"] {
+            display: none;
+
+        }
+
+        .div-top-banners {
+            display: inline-block;
+            margin-left: 20px;
+            padding-right: 10px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="wrapper" style="margin:5%; border-style: groove; border-width: 2px;">
+    <!-- Preloader -->
+    <div class="preloader flex-column justify-content-center align-items-center">
+        <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    </div>
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Sidebar -->
+        <div class="sidebar">
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                    <br><br>
+                    <!-- Статистика начало-->
+                    <li class="nav-item">
+                        <a th:href="@{/admin-statistics}" class="nav-link">
+                            <p>
+                                Статистика
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                    </li>
+                    <!-- Статистика конец -->
+
+                    <!-- Баннеры/Слайдеры начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Баннеры/слайдеры
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                    </li>
+                    <!-- Баннеры/Слайдеры конец -->
+
+                    <!-- Фильмы начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Фильмы
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a th:href="@{/admin-films}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Список фильмов</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-film-page}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Страница фильма</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Фильмы, конец-->
+
+                    <!-- Кинотеатры начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Кинотеатры
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a th:href="@{/admin-cinemas}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Список кинотеатров</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-cinema-card}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Карточка кинотеатра</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-hall-card}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Карточка зала</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Кинотеатры, конец-->
+
+                    <!-- Новости начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Новости
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a th:href="@{/admin-news}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Список новостей</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-news-page}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Страница новости</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Новости, конец-->
+
+                    <!-- Акции начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Акции
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a th:href="@{/admin-stocks}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Список акций</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-stock-page}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Страница акции</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Акции, конец-->
+
+                    <!-- Страницы начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Страницы
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a th:href="@{/admin-pages}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Список страниц</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-main-page}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Главная страница</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-about-cinema}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>О кинотеатре</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-main-page}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Кафе-бар</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-vip-hall}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>VIP-зал</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-ad}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Реклама</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-children-room}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Детская комната</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-contacts}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Контакты</p>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- Страницы, конец-->
+
+                    <!-- Пользователи начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Пользователи
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a th:href="@{/admin-users}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Список пользователей</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-user-editing}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Редактирование пользователя</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Пользователи, конец-->
+
+                    <!-- Рассылка начало-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <p>
+                                Рассылка
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a th:href="@{/admin-mailing}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Настройка рассылки</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a th:href="@{/admin-mailing-user-choice}" class="nav-link">
+                                    <i class="bi bi-arrow-right-short"></i>
+                                    <p>Выбор пользователей</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- Рассылка, конец-->
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+    <hr style="width: 100%">
+    <div style="margin-left: 17%; margin-right: 2%; margin-top: 2%; margin-bottom: 2%; background-color: #9e9ca6" >
+
+        <div style="margin-top: 20px">
+            <br>
+            <h3 align="center">Список страниц</h3>
+            <a style="margin-left: 1200px" href="admin-pages-new-page"><button class="btn btn-success">+ Создать новую</button></a>
+        </div>
+        <br>
+        <div style="border-style: groove; border-radius: 15px; width: 95%; height: auto; margin-bottom: 50px; margin-left: 30px">
+
+            <table class="table table-striped" id="info">
+                <thead style="background-color: yellowgreen">
+                <tr>
+                    <td>Название</td>
+                    <td>Дата создания</td>
+                    <td>Статус</td>
+                    <td style="visibility: hidden">  </td>
+                    <td style="visibility: hidden">  </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="mainPage : ${mainPage}">
+                    <td th:text="${mainPage.name}"></td>
+                    <td th:text="${mainPage.creatingDate}"></td>
+                    <td th:text="${mainPage.status}"></td>
+                    <td><a th:href="'/admin-main-page-edit/'+${mainPage.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td></td>
+                </tr>
+                <tr th:each="aboutCinema : ${aboutCinema}">
+                    <td th:text="${aboutCinema.title}"></td>
+                    <td th:text="${aboutCinema.publicDate}"></td>
+                    <td th:text="${aboutCinema.status}"></td>
+                    <td><a th:href="'/admin-about-cinema-edit/'+${aboutCinema.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td></td>
+                </tr>
+                <tr th:each="cafeBar : ${cafeBars}">
+                    <td th:text="${cafeBar.title}"></td>
+                    <td th:text="${cafeBar.publicDate}"></td>
+                    <td th:text="${cafeBar.status}"></td>
+                    <td><a th:href="'/admin-cafe-bar-edit/'+${cafeBar.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td></td>
+                </tr>
+
+                <tr th:each="vipHall : ${vipHall}">
+                    <td th:text="${vipHall.title}"></td>
+                    <td th:text="${vipHall.publicDate}"></td>
+                    <td th:text="${vipHall.status}"></td>
+                    <td><a th:href="'/admin-vip-hall-edit/'+${vipHall.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td></td>
+                </tr>
+                <tr th:each="ad : ${ad}">
+                    <td th:text="${ad.title}"></td>
+                    <td th:text="${ad.publicDate}"></td>
+                    <td th:text="${ad.status}"></td>
+                    <td><a th:href="'/admin-ad-edit/'+${ad.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td></td>
+                </tr>
+                <tr th:each="childrenRoom : ${childrenRoom}">
+                    <td th:text="${childrenRoom.title}"></td>
+                    <td th:text="${childrenRoom.publicDate}"></td>
+                    <td th:text="${childrenRoom.status}"></td>
+                    <td><a th:href="'/admin-children-room-edit/'+${childrenRoom.id}"><button><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td></td>
+                </tr>
+                </tr>
+                <tr th:each="contactsListAdditionalData : ${contactsListAdditionalData}">
+                    <td th:text="${contactsListAdditionalData.name}"></td>
+                    <td th:text="${contactsListAdditionalData.publicDate}"></td>
+                    <span th:each="status : ${contactsPageStatus}"> <td th:text="${status.status}"></td></span>
+                    <td><a th:href="admin-contacts"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td></td>
+                </tr>
+                <tr th:each="newPage : ${newPages}">
+                    <td th:text="${newPage.title}"></td>
+                    <td th:text="${newPage.publicDate}"></td>
+                    <td th:text="${newPage.status}"></td>
+                    <td><a th:href="'/admin-pages-new-page-edit/'+${newPage.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
+                    <td>
+                        <form th:action="'/admin-pages-new-page-remove/'+${newPage.id}" method="post">
+                            <button title="Удалить пользователя" type="submit"><i class="bi bi-trash-fill"></i></button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+
+    </div>
+
+    <!-- Валидация, начало-->
+    <script>
+        /*скрипт, отвечающий за проверку полей*/
+        function checkform(element) {
+            var name = element.bannerImage.value;
+            var surname = element.bannerUrl.value;
+            var nickname = element.bannerText.value;
+            var fail = "";
+
+            if (name == "")
+                fail = "Пожалуйста, загрузите картинку!";
+            else if (surname.length < 1 || surname.length >50)
+                fail = "Пожалуйста, введите URL!";
+            else if (nickname.length < 1 || nickname.length >50)
+                fail = "Пожалуйста, введите описание!";
+
+            if (fail != "") {
+                document.getElementById('error').innerHTML = fail;
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        function checkformModal2(element) {
+            var name = element.mainNewStockBannerImage.value;
+            var surname = element.mainNewStockBannerUrl.value;
+            var nickname = element.mainNewStockBannerText.value;
+            var fail = "";
+
+            if (name == "")
+                fail = "Пожалуйста, загрузите картинку!";
+            else if (surname.length < 1 || surname.length >50)
+                fail = "Пожалуйста, введите URL!";
+            else if (nickname.length < 1 || nickname.length >50)
+                fail = "Пожалуйста, введите описание!";
+
+            if (fail != "") {
+                document.getElementById('error2').innerHTML = fail;
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+    </script>
+    <!-- Валидация, конец-->
+
+    <!--Предпросмотр картинки-->
+    <script>
+        function readURL1(input) {
+            if (input.files && input.files[0]) {
+                var reader1 = new FileReader();
+
+                reader1.onload = function(e) {
+                    $('#prevImage1b').attr('src', e.target.result);
+                }
+
+                reader1.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#mainTopBannerImage1").change(function() {
+            readURL1(this);
+        });
+
+
+
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader2 = new FileReader();
+
+                reader2.onload = function(e) {
+                    $('#prevImage2b').attr('src', e.target.result);
+                }
+
+                reader2.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#mainTopBannerImage2").change(function() {
+            readURL2(this);
+        });
+
+
+
+        function readURL3(input) {
+            if (input.files && input.files[0]) {
+                var reader3 = new FileReader();
+
+                reader3.onload = function(e) {
+                    $('#prevImage3b').attr('src', e.target.result);
+                }
+
+                reader3.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#mainTopBannerImage3").change(function() {
+            readURL3(this);
+        });
+        /*скрипт, отвечающий за предпросмотр картинки*/
+    </script>
+
+
+
+</div>
+
+</div>
+
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>

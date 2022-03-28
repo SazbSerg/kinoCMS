@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style th:insert="blocks/style.html :: style"></style>
+</head>
+
+<th:block th:each="bgb : ${backgroundBanner}">
+    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <header th:insert="blocks/header.html :: header"></header>
+    <!--Номера телефонов -->
+    <div th:each="mainPage : ${mainPages}" style="margin-left: 90%; color: whitesmoke; font-size: large">
+        <span th:text="${mainPage.phoneNumber1}"></span><br>
+        <span th:text="${mainPage.phoneNumber2}"></span>
+    </div>
+    <br><br>
+
+    <div style="width: 60%; background-color: floralwhite; margin-left: 20%">
+        <div style="width: 1200px; margin-left: 1.25%">
+            <div th:each="stocksUser : ${stocksUsers}" style="display:inline-block; width: 300px; margin-left: 15px; margin-right: 15px; margin-top: 50px">
+                <div>
+                <a th:href="'/stock-card/'+${stocksUser.id}"><img th:attr="src=@{|image/stock-pictures/${stocksUser.mainImage}|}" style="width: 400px; height: 300px"/></a>
+                <p th:text="${stocksUser.title}"></p>
+                <p th:text="${stocksUser.publicDate}"></p>
+                <p th:text="${stocksUser.description}"></p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+<header th:insert="blocks/footer.html :: footer"></header>
+</body>
+</th:block>
+</html>

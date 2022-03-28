@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<body>
+<div class="form">
+        <input id="input1" class="input1" type="file"/>
+        <input id="input2" class="input2" type="text"/>
+        </br></br>
+        <input id="input3" class="input1" type="file"/>
+        <input id="input4" class="input2" type="text"/>
+        </br></br>
+        <div class="block">
+        <input id="input5" class="input1" type="file"/>
+        <input id="input6" class="input2" type="text"/>
+        </div>
+        <br>
+        <div class="add">Добавить</div>
+    <br><br>
+    <button type="button" onclick="ajaxReq()">Сохранить</button>
+</div>
+<script>
+
+        var $add = document.getElementsByClassName('add')[0];
+        var $form = document.getElementsByClassName('form')[0];
+        $add.addEventListener('click', function(event) {
+            var $input1 = document.createElement('input');
+            $input1.type = 'file';
+            $input1.accept="image/png, image/jpeg, image/gif";
+            $input1.placeholder = 'Кол-во';
+            $input1.classList.add('amount');
+            $form.insertBefore($input1, $add);
+            var $img1 = document.createElement('img');
+            $img1.classList.add('amount');
+            $form.insertBefore($img1, $add);
+            var $input2 = document.createElement('input');
+            $input2.type = 'text';
+            $input2.placeholder = 'Кол-во';
+            $input2.classList.add('amount');
+            $form.insertBefore($input2, $add);
+        });
+    function ajaxReq() {
+        let count = document.getElementsByClassName('input1').length;
+        let arr = [];
+
+        for(let i = 0; i < count; i++){
+            arr[i] = {par1: document.getElementsByClassName('input1')[i].value,
+                      par2: document.getElementsByClassName('input2')[i].value
+            }
+        }
+
+        let json = JSON.stringify(arr);
+
+            $.ajax({
+                type: 'POST',
+                contentType: "application/json",
+                url: "/test-ajax",
+                data: json,
+                dataType: "json"
+            });
+    }
+</script>
+</body>
+</html>
