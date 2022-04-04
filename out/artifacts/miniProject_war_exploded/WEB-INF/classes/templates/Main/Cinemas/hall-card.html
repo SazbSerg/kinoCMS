@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/simple-adaptive-slider.min.css">
+    <script defer src="/simple-adaptive-slider.js"></script>
+    <!-- Подключаем JS слайдера -->
+    <style>
+        /* стили для элемента body
+        body {
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+            sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+        }*/
+
+        #slider {
+            max-width: 600px;
+            max-height: 350px;
+        }
+
+        /* дополнительные стили для этого примера */
+        .slider__items {
+            counter-reset: slide;
+        }
+
+        .slider__item {
+            position: relative;
+            counter-increment: slide;
+        }
+
+        .slider__item::after {
+            content: counter(slide);
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            color: #fff;
+            font-style: italic;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        .img-fluid {
+            display: inline-block;
+            height: auto;
+            max-width: 100%;
+        }
+
+    </style>
+    <style th:insert="blocks/style.html :: style"></style>
+</head>
+<th:block th:each="bgb : ${backgroundBanner}">
+    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <header th:insert="blocks/header.html :: header"></header>
+    <br>
+    <!--Номера телефонов -->
+    <div th:each="mainPage : ${mainPages}" style="margin-left: 90%; color: whitesmoke; font-size: large">
+        <span th:text="${mainPage.phoneNumber1}"></span><br>
+        <span th:text="${mainPage.phoneNumber2}"></span>
+    </div>
+    <br><br>
+    <img th:src="@{'/image/hall-pictures/'+ ${hall.topImage}}" alt="..." style="height: 100px; width: 250px; margin-top: 10px; margin-left: 20%">
+    <div style="width: 60%; background-color: floralwhite; margin-left: 20%">
+
+        <div style="width: 1200px; margin-left: 1.25%">
+            <div>
+                <img th:src="@{'/image/hall-pictures/'+ ${hall.hallPlan}}" alt="..." width=93%; style="height: 300px; margin-top: 20px">
+                <div style="width: 20%; height: 400px; display: inline-block; border-style: groove"><a th:href="@{${hall.seoUrl}}"><div th:text="${hall.seoDescription}"></div></a></div>
+                <div style="display: inline-block; width: 75%">
+                <h3 th:text="${hall.hallNumber}" style="margin-left: 40%"></h3>
+                <br>
+                <p th:text="${hall.description}"; style="margin-left: 50px"></p>
+                </div>
+                <br>
+                <h4 style="margin-left: 37.5%">Карта зала</h4>
+                <img src="/image/hall-map.png" style="margin-left: 75px">
+                <br>
+                <button class="btn-success" style="width: 300px; height: 70px; margin-top: 20px; margin-bottom: 20px; margin-left: 35%">Расписание всех сеансов</button>
+                <br>
+                <br>
+            </div>
+        </div>
+        <!-- Разметка верхнего слайдера -->
+        <div id="slider" style="margin-left: 25%">
+            <div class="slider__wrapper">
+                <div class="slider__items">
+                    <div class="slider__item">
+                        <img class="img-fluid" th:src="@{'/image/hall-pictures/'+ ${hall.image1}}" alt="..." width="600" height="350"  loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img class="img-fluid" th:src="@{'/image/hall-pictures/'+ ${hall.image2}}" alt="..." width="600" height="350"  loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img class="img-fluid" th:src="@{'/image/hall-pictures/'+ ${hall.image3}}" alt="..." width="600" height="350"  loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img class="img-fluid" th:src="@{'/image/hall-pictures/'+ ${hall.image4}}" alt="..." width="600" height="350"  loading="lazy">
+                    </div>
+                    <div class="slider__item">
+                        <img class="img-fluid" th:src="@{'/image/hall-pictures/'+ ${hall.image5}}" alt="..." width="600" height="350"  loading="lazy">
+                    </div>
+                </div>
+            </div>
+            <a class="slider__control slider__control_prev" href="#" role="button" data-slide="prev"></a>
+            <a class="slider__control slider__control_next" href="#" role="button" data-slide="next"></a>
+        </div>
+        <!--Конец слайдера-->
+        <br>
+        <br>
+    </div>
+<header  style="background-color: white" th:insert="blocks/footer.html :: footer"></header>
+    <!--Скрипты слайдеров-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // инициализация слайдера
+            var slider = new SimpleAdaptiveSlider('#slider', {
+                autoplay: false,
+                interval: 0,
+            });
+        });
+    </script>
+
+    </body>
+</th:block>
+</html>
