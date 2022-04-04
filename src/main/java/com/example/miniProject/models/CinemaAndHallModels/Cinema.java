@@ -17,46 +17,46 @@ public class Cinema {
     @Column(name = "cinema_title", nullable = false)
     private String cinemaTitle;
 
-    @Column(name = "language", nullable = false)
+    @Column(name = "language")
     private boolean language;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "conditions", nullable = false)
+    @Column(name = "conditions")
     private String conditions;
 
-    @Column(name = "logo", nullable = false)
+    @Column(name = "logo")
     private String hallPlan;
 
-    @Column(name = "top_banner", nullable = false)
+    @Column(name = "top_banner")
     private  String topBanner;
 
-    @Column(name = "image_1", nullable = false)
+    @Column(name = "image_1")
     private String image1;
 
-    @Column(name = "image_2", nullable = false)
+    @Column(name = "image_2")
     private String image2;
 
-    @Column(name = "image_3", nullable = false)
+    @Column(name = "image_3")
     private String image3;
 
-    @Column(name = "image_4", nullable = false)
+    @Column(name = "image_4")
     private String image4;
 
-    @Column(name = "image_5", nullable = false)
+    @Column(name = "image_5")
     private String image5;
 
-    @Column(name = "seo_url", nullable = false)
+    @Column(name = "seo_url")
     private String seoUrl;
 
-    @Column(name = "seo_title", nullable = false)
+    @Column(name = "seo_title")
     private String seoTitle;
 
-    @Column(name = "seo_keywords", nullable = false)
+    @Column(name = "seo_keywords")
     private String seoKeywords;
 
-    @Column(name = "seo_description", nullable = false)
+    @Column(name = "seo_description")
     private String seoDescription;
 
     public Long getId() {

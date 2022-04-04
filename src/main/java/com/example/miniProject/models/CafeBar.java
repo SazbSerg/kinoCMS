@@ -10,49 +10,49 @@ public class CafeBar {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false)
+    @Column(name = "title")
     private String title;
 
-    @Column(name = "description", nullable = false)
+    @Column(name = "description")
     private String description;
 
-    @Column(name = "publuc_date", nullable = false)
+    @Column(name = "publuc_date")
     private String publicDate;
 
-    @Column(name = "language", nullable = false)
+    @Column(name = "language")
     private boolean language;
 
-    @Column(name = "status", nullable = false)
+    @Column(name = "status")
     private boolean status;
 
-    @Column(name = "main_image", nullable = false)
+    @Column(name = "main_image")
     private  String mainImage;
 
-    @Column(name = "image_1", nullable = false)
+    @Column(name = "image_1")
     private String image1;
 
-    @Column(name = "image_2", nullable = false)
+    @Column(name = "image_2")
     private String image2;
 
-    @Column(name = "image_3", nullable = false)
+    @Column(name = "image_3")
     private String image3;
 
-    @Column(name = "image_4", nullable = false)
+    @Column(name = "image_4")
     private String image4;
 
-    @Column(name = "image_5", nullable = false)
+    @Column(name = "image_5")
     private String image5;
 
-    @Column(name = "seo_url", nullable = false)
+    @Column(name = "seo_url")
     private String seoUrl;
 
-    @Column(name = "seo_title", nullable = false)
+    @Column(name = "seo_title")
     private String seoTitle;
 
-    @Column(name = "seo_keywords", nullable = false)
+    @Column(name = "seo_keywords")
     private String seoKeywords;
 
-    @Column(name = "seo_description", nullable = false)
+    @Column(name = "seo_description")
     private String seoDescription;
 
     public String getTitle() {
@@ -186,15 +186,12 @@ public class CafeBar {
     public CafeBar() {
     }
 
-    public CafeBar(String title, String description, String publicDate, boolean language, boolean status,
-                   String mainImage, String image1, String image2, String image3, String image4, String image5,
-                   String seoUrl, String seoTitle, String seoKeywords, String seoDescription) {
+    public CafeBar(String title, String description, String publicDate, boolean language, boolean status, String image1, String image2, String image3, String image4, String image5, String seoUrl, String seoTitle, String seoKeywords, String seoDescription) {
         this.title = title;
         this.description = description;
         this.publicDate = publicDate;
         this.language = language;
         this.status = status;
-        this.mainImage = mainImage;
         this.image1 = image1;
         this.image2 = image2;
         this.image3 = image3;
@@ -204,5 +201,29 @@ public class CafeBar {
         this.seoTitle = seoTitle;
         this.seoKeywords = seoKeywords;
         this.seoDescription = seoDescription;
+    }
+
+    public CafeBar(String title, String description, String publicDate, boolean language, boolean status,
+                   String image1, String image2, String image3, String image4, String image5,
+                   String seoUrl, String seoTitle, String seoKeywords, String seoDescription, String mainImage) {
+              this.title = title;
+              this.description = description;
+              this.publicDate = publicDate;
+              this.language = language;
+              this.status = status;
+              this.image1 = image1;
+              this.image2 = image2;
+              this.image3 = image3;
+              this.image4 = image4;
+              this.image5 = image5;
+              this.seoUrl = seoUrl;
+              this.seoTitle = seoTitle;
+              this.seoKeywords = seoKeywords;
+              this.seoDescription = seoDescription;
+              this.mainImage = mainImage;
+          }
+
+    public CafeBar(String mainImage) {
+        this.mainImage = mainImage;
     }
 }

@@ -25,6 +25,6 @@ public class AdminNewsController {
     public String newsPostDelete(@PathVariable(value = "id") long id, Model model){
         News news = newsRepository.findById(id).orElseThrow();
         newsRepository.delete(news);
-        return "rdirect:/admin-news";
+        return "redirect:/admin-news";
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Рассылка</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -112,266 +112,9 @@
 <body>
 
 <div class="wrapper" style="margin:5%; border-style: groove; border-width: 2px;">
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Sidebar -->
-        <div class="sidebar">
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <br><br>
-                    <!-- Статистика начало-->
-                    <li class="nav-item">
-                        <a th:href="@{/admin-statistics}" class="nav-link">
-                            <p>
-                                Статистика
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <!-- Статистика конец -->
-
-                    <!-- Баннеры/Слайдеры начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Баннеры/слайдеры
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <!-- Баннеры/Слайдеры конец -->
-
-                    <!-- Фильмы начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Фильмы
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-films}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список фильмов</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-film-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница фильма</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Фильмы, конец-->
-
-                    <!-- Кинотеатры начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Кинотеатры
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-cinemas}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список кинотеатров</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-cinema-card}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Карточка кинотеатра</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-hall-card}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Карточка зала</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Кинотеатры, конец-->
-
-                    <!-- Новости начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Новости
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-news}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список новостей</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-news-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница новости</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Новости, конец-->
-
-                    <!-- Акции начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Акции
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-stocks}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список акций</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-stock-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница акции</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Акции, конец-->
-
-                    <!-- Страницы начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Страницы
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-pages}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список страниц</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-main-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Главная страница</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-about-cinema}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>О кинотеатре</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-main-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Кафе-бар</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-vip-hall}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>VIP-зал</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-ad}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Реклама</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-children-room}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Детская комната</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-contacts}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Контакты</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <!-- Страницы, конец-->
-
-                    <!-- Пользователи начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Пользователи
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-users}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список пользователей</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-user-editing}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Редактирование пользователя</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Пользователи, конец-->
-
-                    <!-- Рассылка начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Рассылка
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-mailing}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Настройка рассылки</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-user-choice}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Выбор пользователей</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Рассылка, конец-->
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
-
+    <!-- Блок бокового навигационного меню, начало-->
+    <block th:insert="blocks/side-menu.html :: side-menu"></block>
+    <!-- Блок бокового навигационного меню, конец-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -388,20 +131,24 @@
                 <p>Выбор пользователей для рассылки</p>
                 <br>
             <form method="post">
-                <input type="radio" name="choiceUserToSendSms" value="1">Все пользователи
+                <input type="radio" name="choiceUserToSendSms" value="1" disabled>Все пользователи
             <br><br>
-                <input type="radio" name="choiceUserToSendSms" value="0">Выброчно
+                <input type="radio" name="choiceUserToSendSms" value="0" disabled>Выброчно
             <br><br><br>
             <p>Текст SMS</p>
-            <textarea id="textToSendSms" name="textToSendSms" placeholder="Введите текст" class="form-control" style="width: 500px"></textarea>
+            <textarea disabled id="textToSendSms" name="textToSendSms" placeholder="СМС-рассылка отключена." class="form-control" style="width: 500px"></textarea>
             <br><br>
-            <button type="submit" style="margin-left: 570px" class="btn btn-success">Начать рассылку</button>
+            <button disabled type="submit" style="margin-left: 570px" class="btn btn-success">Начать рассылку</button>
             </form>
-                <a th:href="@{/admin-mailing-user-choice}"><button onclick="ajaxReq()" style="position: relative; left: 300px; bottom: 290px;" class="btn btn-success">Выбор пользователей</button></a>
+                <a th:href="@{/admin-mailing-user-choice}"><button disabled onclick="ajaxReq()" style="position: relative; left: 300px; bottom: 290px;" class="btn btn-success">Выбор пользователей</button></a>
                 <br><br>
             </div>
         </div>
         <br>
+
+
+
+
         <div style="margin-top: 20px">
             <br>
             <h3 align="center">Email</h3>
@@ -412,16 +159,16 @@
                 <p>Выбор пользователей для рассылки</p>
                 <br>
                 <form method="post">
-                    <input type="radio" name="choiceUserToSendEmail" value="1">Все пользователи
+                    <input type="radio" required name="choiceUserToSendEmail" value="1" onchange="inputDisable(true)">Все пользователи
                     <br><br>
-                    <input type="radio" name="choiceUserToSendEmail" value="0">Выброчно
+                    <input type="radio" required name="choiceUserToSendEmail" value="0" checked onchange="inputDisable(false)">Выброчно
                     <br><br><br>
                     <p>Текст e-mail-сообщения</p>
-                    <textarea id="textToSendEmail" name="textToSendEmail" placeholder="Введите текст" class="form-control" style="width: 500px"></textarea>
+                    <textarea required title="Введите текст сообщения!" id="textToSendEmail" name="textToSendEmail" placeholder="Введите текст" class="form-control" style="width: 500px"></textarea>
                     <br><br>
                     <button type="submit" style="margin-left: 570px" class="btn btn-success">Начать рассылку</button>
                 </form>
-                <a th:href="@{/admin-mailing-user-choice}"><button onclick="ajaxReq()" style="position: relative; left: 300px; bottom: 290px;" class="btn btn-success">Выбор пользователей</button></a>
+                <a th:href="@{/admin-mailing-user-choice}"><button id="user-choice-button" style="position: relative; left: 300px; bottom: 290px;" class="btn btn-success">Выбор пользователей</button></a>
                 <br><br>
             </div>
         </div>
@@ -429,7 +176,14 @@
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!--Передача содержимого СМС через JSON-->
+
+
+    <script>
+        let inputDisable = function(value) {
+            document.getElementById('user-choice-button').disabled = value;
+        }
+    </script>
+    <!--Передача содержимого СМС через JSON
     <script>
         function ajaxReq() {
             let text = document.getElementById('textToSendSms').value;
@@ -446,109 +200,7 @@ console.log(json);
             });
         }
     </script>
-
-    <!-- Валидация, начало-->
-    <script>
-        /*скрипт, отвечающий за проверку полей*/
-        function checkform(element) {
-            var name = element.bannerImage.value;
-            var surname = element.bannerUrl.value;
-            var nickname = element.bannerText.value;
-            var fail = "";
-
-            if (name == "")
-                fail = "Пожалуйста, загрузите картинку!";
-            else if (surname.length < 1 || surname.length >50)
-                fail = "Пожалуйста, введите URL!";
-            else if (nickname.length < 1 || nickname.length >50)
-                fail = "Пожалуйста, введите описание!";
-
-            if (fail != "") {
-                document.getElementById('error').innerHTML = fail;
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        function checkformModal2(element) {
-            var name = element.mainNewStockBannerImage.value;
-            var surname = element.mainNewStockBannerUrl.value;
-            var nickname = element.mainNewStockBannerText.value;
-            var fail = "";
-
-            if (name == "")
-                fail = "Пожалуйста, загрузите картинку!";
-            else if (surname.length < 1 || surname.length >50)
-                fail = "Пожалуйста, введите URL!";
-            else if (nickname.length < 1 || nickname.length >50)
-                fail = "Пожалуйста, введите описание!";
-
-            if (fail != "") {
-                document.getElementById('error2').innerHTML = fail;
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-    </script>
-    <!-- Валидация, конец-->
-
-    <!--Предпросмотр картинки-->
-    <script>
-        function readURL1(input) {
-            if (input.files && input.files[0]) {
-                var reader1 = new FileReader();
-
-                reader1.onload = function(e) {
-                    $('#prevImage1b').attr('src', e.target.result);
-                }
-
-                reader1.readAsDataURL(input.files[0]);
-            }
-        }
-        $("#mainTopBannerImage1").change(function() {
-            readURL1(this);
-        });
-
-
-
-        function readURL2(input) {
-            if (input.files && input.files[0]) {
-                var reader2 = new FileReader();
-
-                reader2.onload = function(e) {
-                    $('#prevImage2b').attr('src', e.target.result);
-                }
-
-                reader2.readAsDataURL(input.files[0]);
-            }
-        }
-        $("#mainTopBannerImage2").change(function() {
-            readURL2(this);
-        });
-
-
-
-        function readURL3(input) {
-            if (input.files && input.files[0]) {
-                var reader3 = new FileReader();
-
-                reader3.onload = function(e) {
-                    $('#prevImage3b').attr('src', e.target.result);
-                }
-
-                reader3.readAsDataURL(input.files[0]);
-            }
-        }
-        $("#mainTopBannerImage3").change(function() {
-            readURL3(this);
-        });
-        /*скрипт, отвечающий за предпросмотр картинки*/
-    </script>
-
-
+-->
 
 </div>
 

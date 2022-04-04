@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Serving Web Content</title>
+    <title>Фильм</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style th:insert="blocks/style.html :: style"></style>
@@ -51,7 +51,7 @@
 </head>
 
 <th:block th:each="bgb : ${backgroundBanner}">
-    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <body style="background-color: grey;" th:background="'/background-banner-image/'+${bgb.getBackgroundBanner()}">
     <header th:insert="blocks/header.html :: header"></header>
     <!--Номера телефонов -->
     <div th:each="mainPage : ${mainPages}" style="margin-left: 90%; color: whitesmoke; font-size: large">
@@ -61,7 +61,7 @@
     <br><br>
 
 <div style="width: 60%; background-color: floralwhite; margin-left: 20%">
-    <div style="width: 1200px; margin-left: 1.25%">
+    <div style="width: 97.5%; margin-left: 1.25%">
         <div th:each="film : ${films}">
             <br>
             <iframe width="1120" height="630" th:src="${film.trailerUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -83,7 +83,7 @@
             </span>
 <div> <br></div>
             <div style="display: inline-block;">
-                     <img th:attr="src=@{|/image/${film.mainScreen}|}" style="width: 400px; height: 400px; "/>
+                     <img th:attr="src=@{|/film-images/${film.mainScreen}|}" style="width: 400px; height: 400px; "/>
             </div>
             <div style="display: inline-block; margin-left: 20px">
                   <button style="width: 300px; height: 75px" class="btn btn-success">Купить билет</button>
@@ -96,23 +96,23 @@
             </div>
 
             <!-- Разметка верхнего слайдера -->
-            <div id="slider" th:each="fff : ${films}" style="margin-left: 610px">
+            <div id="slider" th:each="fff : ${films}" style="margin-left: 54%">
                 <div class="slider__wrapper">
                     <div class="slider__items">
                         <div class="slider__item">
-                            <img class="img-fluid" th:src="@{'/image/'+ ${fff.screen1}}" alt="..." width="400" height="200"  loading="lazy">
+                            <img class="img-fluid" th:src="@{'/film-images/'+ ${fff.screen1}}" alt="..." width="400" height="200"  loading="lazy">
                         </div>
                         <div class="slider__item">
-                            <img class="img-fluid" th:src="@{'/image/'+ ${fff.screen2}}" alt="..." width="400" height="200"  loading="lazy">
+                            <img class="img-fluid" th:src="@{'/film-images/'+ ${fff.screen2}}" alt="..." width="400" height="200"  loading="lazy">
                         </div>
                         <div class="slider__item">
-                            <img class="img-fluid" th:src="@{'/image/'+ ${fff.screen3}}" alt="..." width="400" height="200"  loading="lazy">
+                            <img class="img-fluid" th:src="@{'/film-images/'+ ${fff.screen3}}" alt="..." width="400" height="200"  loading="lazy">
                         </div>
                         <div class="slider__item">
-                            <img class="img-fluid" th:src="@{'/image/'+ ${fff.screen4}}" alt="..." width="400" height="200"  loading="lazy">
+                            <img class="img-fluid" th:src="@{'/film-images/'+ ${fff.screen4}}" alt="..." width="400" height="200"  loading="lazy">
                         </div>
                         <div class="slider__item">
-                            <img class="img-fluid" th:src="@{'/image/'+ ${fff.screen5}}" alt="..." width="400" height="200"  loading="lazy">
+                            <img class="img-fluid" th:src="@{'/film-images/'+ ${fff.screen5}}" alt="..." width="400" height="200"  loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -120,10 +120,11 @@
                 <a class="slider__control slider__control_next" href="#" role="button" data-slide="next"></a>
             </div>
             <!--Конец слайдера-->
-            <br><br>
-            <div style="height: 200px; width: 80%; margin-left: 50px; background-color: whitesmoke; border-style: groove">
-                <br><br><br><h3 align="center">SEO</h3>
+            <br><br><a th:href="${film.seoUrl}" style="text-decoration: none; color: black;">
+            <div style="height: 200px; width: 80%; margin-left: 10%; background-color: whitesmoke; border-style: groove">
+                <br><br><br><h3 style="text-align: center" th:text="${film.seoTitle}"></h3>
             </div>
+        </a>
             <br><br>
         </div>
 

@@ -5,10 +5,14 @@ import com.example.miniProject.models.ContactsListAdditionalData;
 import com.example.miniProject.repo.AdminContactsPageStatusRepositopy;
 import com.example.miniProject.repo.ContactsListAdditionalRepository;
 import com.example.miniProject.repo.ContactsRepository;
+import com.example.miniProject.services.AdminContactsServises.AdminContactsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 public class AdminContactsController {
@@ -20,6 +24,10 @@ public class AdminContactsController {
 
     @Autowired
     private AdminContactsPageStatusRepositopy adminContactsPageStatusRepositopy;
+
+    @Autowired
+    private AdminContactsService adminContactsService;
+
 
     @GetMapping("/admin-contacts")
     public String getContacts(Model model) {
@@ -40,19 +48,14 @@ public class AdminContactsController {
         return "redirect:/admin-contacts";
     }
 
-    @GetMapping("/admin-contacts/{id}")
-    public String postContactsList(@PathVariable(value = "id") long id, @RequestParam String title,
+    @PostMapping("/admin-contacts/{id}")
+    public String postContactsList(@PathVariable(value = "id") long id,
+                                   @RequestParam String title,
                                    @RequestParam String adress,
                                    @RequestParam String coordinates,
-                                   @RequestParam String logo,
-                                   @RequestParam boolean status){
-        Contacts contacts = contactsRepository.findById(id).orElseThrow();
-        contacts.setTitle(title);
-        contacts.setAdress(adress);
-        contacts.setCoordinates(coordinates);
-        contacts.setLogo(logo);
-        contacts.setStatus(status);
-        contactsRepository.save(contacts);
+                                   @RequestParam("logo") MultipartFile logo,
+                                   @RequestParam boolean status) throws IOException {
+        adminContactsService.saveContactsData(id, title, adress, coordinates, logo, status);
         return "redirect:/admin-contacts";
     }
 

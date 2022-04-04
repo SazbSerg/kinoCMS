@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.88.1">
-    <title>Добавление фильмов</title>
+    <title>Редактирование акции</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -107,8 +107,6 @@
 
 <body>
 <hr>
-<h1>FILM PAGE!</h1>
-
 
 <div style="padding-left: 50px; flex: auto; width: 70%;position: relative; margin-left: 15%; margin-top: 5%; margin-bottom: 7%; border-style: solid; background-color: white; display: inline-block; border-radius: 20px;">
 
@@ -120,15 +118,11 @@
                 </button>
             </li>
 
-
-
             <li class="dropdown">
-                <button  class="dropbtn" onclick="window.location.href='/admin-banners'">
+                <button  class="dropbtn" onclick="window.location.href='/admin-banners-and-sliders'">
                     Баннеры/слайдеры
                 </button>
             </li>
-
-
 
             <li class="dropdown">
                 <button onclick="myFunction()" class="dropbtn">
@@ -137,12 +131,10 @@
                 <div id="myDropdown" class="dropdown-content">
                     <ul class="list">
                         <li><a th:href="@{/admin-films}">Фильмы</a></li>
-                        <li><a th:href="@{/admin-film-page}">Страница фильма</a></li>
+                        <li><a th:href="@{/admin-film-page}">Создать фильм</a></li>
                     </ul>
                 </div>
             </li>
-
-
 
             <li class="dropdown">
                 <button onclick="myFunction1()" class="dropbtn">
@@ -150,14 +142,11 @@
                 </button>
                 <div id="myDropdown1" class="dropdown-content">
                     <ul class="list" >
-                        <li><a th:href="@{/admin-cinemas}">Кинотеатры</a></li>
-                        <li><a th:href="@{/admin-cinema-card}">Карточка кинотеатра</a></li>
-                        <li><a th:href="@{/admin-hall-card}">Карточка зала</a></li>
+                        <li><a th:href="@{/admin-cinema-list}">Кинотеатры</a></li>
+                        <li><a th:href="@{/admin-cinema-create}">Создать кинотеатр</a></li>
                     </ul>
                 </div>
             </li>
-
-
 
             <li class="dropdown">
                 <button onclick="myFunction2()" class="dropbtn">
@@ -166,12 +155,10 @@
                 <div id="myDropdown2" class="dropdown-content">
                     <ul class="list">
                         <li><a th:href="@{/admin-news}">Новости</a></li>
-                        <li><a th:href="@{/admin-news-page}">Страница новости</a></li>
+                        <li><a th:href="@{/admin-news-page}">Создать новость</a></li>
                     </ul>
                 </div>
             </li>
-
-
 
             <li class="dropdown">
                 <button onclick="myFunction3()" class="dropbtn">
@@ -180,7 +167,7 @@
                 <div id="myDropdown3" class="dropdown-content">
                     <ul class="list">
                         <li><a th:href="@{/admin-stocks}">Акции</a></li>
-                        <li><a th:href="@{/admin-stock-page}">Страница акции</a></li>
+                        <li><a th:href="@{/admin-stock-page}">Создать акцию</a></li>
                     </ul>
                 </div>
             </li>
@@ -214,12 +201,10 @@
                 <div id="myDropdown5" class="dropdown-content">
                     <ul class="list">
                         <li><a th:href="@{/admin-users}">Пользователи</a></li>
-                        <li><a th:href="@{/admin-user-editing}">Редактирование пользователя</a></li>
+                        <li><a th:href="@{/admin-user-editing}">Создать пользователя</a></li>
                     </ul>
                 </div>
             </li>
-
-
 
             <li class="dropdown">
                 <button onclick="myFunction6()" class="dropbtn">
@@ -228,7 +213,7 @@
                 <div id="myDropdown6" class="dropdown-content">
                     <ul class="list">
                         <li><a th:href="@{/admin-mailing}">Рассылка</a></li>
-                        <li><a th:href="@{/admin-user-choice}">Выбор пользователей</a></li>
+                        <li><a th:href="@{/admin-mailing-user-choice}">Выбор пользователей</a></li>
                     </ul>
                 </div>
             </li>
@@ -238,20 +223,20 @@
     <div class="row g-3" style="display: inline-block; width: 1250px">
         <div th:each="el : ${stocks}" class="container mt-5 mb-5">
 
-            <form method="post" onsubmit="return checkform1(this)">
+            <form method="post" enctype="multipart/form-data" onsubmit="return checkform1(this)">
 
                 <div style="display:inline-block; width: 900px; padding-left: 760px ">
                     <label>Вкл.
-                        <input type="radio" name="status" text="Вкл." value="1"/> Выкл.
-                        <input type="radio" name="status" text="Выкл." value="0"/></label>
+                        <input type="radio"  th:checked="${el.isStatus()} == true" name="status" text="Вкл." value="1"/> Выкл.
+                        <input type="radio"  th:checked="${el.isStatus()} == false" name="status" text="Выкл." value="0"/></label>
                 </div>
 
                 <div style="display:inline-block; padding-left: 50px" >
                     <label>Украинский
-                        <input type="radio" name="language" text="Украинский" value="1"/></label>
+                        <input type="radio" th:checked="${el.isLanguage()} == true" name="language" text="Украинский" value="1"/></label>
 
                     <label>Русский
-                        <input type="radio" name="language" text="Русский" value="0"/></label>
+                        <input type="radio" th:checked="${el.isLanguage()} == false" name="language" text="Русский" value="0"/></label>
                 </div>
 
                 <br>
@@ -276,50 +261,50 @@
 
                 <div class="custom-file">
                     <label class="custom-file-label" for="mainImage">Главная картинка</label>
-                    <input type="file" name="mainImage" class="form-control1" id="mainImage" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage" class="form-control" th:src="@{'/image/stock-pictures/'+ ${el.mainImage}}" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile()">Удалить</button>
+                    <input type="file" name="mainImage" class="form-control1" id="mainImage" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                    <img id="prevImage" class="form-control" th:src="@{'/stocks-images/'+ ${el.mainImage}}" alt="Image" style=" width: 190px; height: 100px;"/>
+                    <button type="button" onclick="resetFile()">Удалить</button>
                 </div>
 
                 <br><br>
 
                 <div style="display: inline-block; width: 220px;">
-                    <input type="file" name="image1" class="form-control" id="image1" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage1" th:src="@{'/image/stock-pictures/'+ ${el.image1}}" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile1()">Удалить</button>
+                    <input type="file" name="image1" class="form-control" id="image1" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                    <img id="prevImage1" th:src="@{'/stocks-images/'+ ${el.image1}}" alt="Image" style=" width: 190px; height: 100px;"/>
+                    <button type="button" onclick="resetFile1()">Удалить</button>
                 </div>
 
 
                 <div class="div-top-banners">
-                    <input type="file" name="image2" class="form-control" id="image2" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage2" th:src="@{'/image/stock-pictures/'+ ${el.image2}}" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile2()">Удалить</button>
+                    <input type="file" name="image2" class="form-control" id="image2" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                    <img id="prevImage2" th:src="@{'/stocks-images/'+ ${el.image2}}" alt="Image" style=" width: 190px; height: 100px;"/>
+                    <button type="button" onclick="resetFile2()">Удалить</button>
                 </div>
 
                 <div class="div-top-banners">
-                    <input type="file" name="image3" class="form-control" id="image3" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage3" th:src="@{'/image/stock-pictures/'+ ${el.image3}}" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile3()">Удалить</button>
+                    <input type="file" name="image3" class="form-control" id="image3" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                    <img id="prevImage3" th:src="@{'/stocks-images/'+ ${el.image3}}" alt="Image" style=" width: 190px; height: 100px;"/>
+                    <button type="button" onclick="resetFile3()">Удалить</button>
                 </div>
 
                 <div class="div-top-banners">
-                    <input type="file" name="image4" class="form-control" id="image4" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage4" th:src="@{'/image/stock-pictures/'+ ${el.image4}}" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile4()">Удалить</button>
+                    <input type="file" name="image4" class="form-control" id="image4" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                    <img id="prevImage4" th:src="@{'/stocks-images/'+ ${el.image4}}" alt="Image" style=" width: 190px; height: 100px;"/>
+                    <button type="button" onclick="resetFile4()">Удалить</button>
                 </div>
 
 
                 <div class="div-top-banners">
-                    <input type="file" name="image5" class="form-control" id="image5" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage5" th:src="@{'/image/stock-pictures/'+ ${el.image5}}" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile5()">Удалить</button>
+                    <input type="file" name="image5" class="form-control" id="image5" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                    <img id="prevImage5" th:src="@{'/stocks-images/'+ ${el.image5}}" alt="Image" style=" width: 190px; height: 100px;"/>
+                    <button type="button" onclick="resetFile5()">Удалить</button>
                 </div>
 
                 <br><br>
 
                 <div>
                     <label for="videoLink" class="form-label">Ссылка на трейлер</label><br>
-                    <input type="text" name="videoLink" id="videoLink" placeholder="Ссылка на видео в youtube" class="form-control" th:value="${el.videoLink}"/>
+                    <input type="url" name="videoLink" id="videoLink" placeholder="Ссылка на видео в youtube" class="form-control" th:value="${el.videoLink}"/>
                 </div>
 
                 <br><br>
@@ -330,7 +315,7 @@
                 <div style="width: 800px; margin-left: 200px">
 
                     <label for="seoUrl" class="form-label">URL:</label><br>
-                    <input type="text" name="seoUrl" id="seoUrl" placeholder="URL" value="" class="form-control" th:value="${el.seoUrl}"/><br>
+                    <input type="url" name="seoUrl" id="seoUrl" placeholder="URL" value="" class="form-control" th:value="${el.seoUrl}"/><br>
 
                     <label for="seoTitle" class="form-label">Title:</label><br>
                     <input type="text" name="seoTitle" id="seoTitle" placeholder="Title" value="" class="form-control" th:value="${el.seoTitle}"/><br>
@@ -342,7 +327,6 @@
                     <textarea name="seoDescription" id="seoDescription" placeholder="Description" class="form-control" th:text="${el.seoDescription}"></textarea>
 
                 </div>
-
 
                 <br><br>
                 <div id="error" style="color:red;"></div>

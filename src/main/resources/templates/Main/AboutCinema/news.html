@@ -7,7 +7,7 @@
     <style th:insert="blocks/style.html :: style"></style>
 </head>
 <th:block th:each="bgb : ${backgroundBanner}">
-    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <body style="background-color: grey;" th:background="'/background-banner-image/'+${bgb.getBackgroundBanner()}">
     <header th:insert="blocks/header.html :: header"></header>
     <!--Номера телефонов -->
     <div th:each="mainPage : ${mainPages}" style="margin-left: 90%; color: whitesmoke; font-size: large">
@@ -17,10 +17,10 @@
     <br><br>
 
     <div style="width: 60%; background-color: floralwhite; margin-left: 20%">
-        <div style="width: 1200px; margin-left: 1.25%">
-            <div th:each="news : ${news}" style="display:inline-block; width: 300px; margin-left: 15px; margin-right: 15px; margin-top: 50px">
+        <div style="width: 95%; margin-left: 1.25%">
+            <div th:each="news : ${news}" style="display:inline-block; width: 300px; margin-left: 15px; margin-right: 15px; margin-top: 50px; vertical-align: top;">
                 <div>
-                    <img th:attr="src=@{|image/${news.mainImage}|}" style="width: 280px; height: 280px"/>
+                    <img th:attr="src=@{|/news-images/${news.mainImage}|}" style="width: 280px; height: 280px"/>
                     <p th:text="${news.title}"></p>
                     <p th:text="${news.publicDate}"></p>
                     <p th:text="${news.description}"></p>

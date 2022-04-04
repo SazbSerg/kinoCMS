@@ -7,7 +7,7 @@
     <style th:insert="blocks/style.html :: style"></style>
 </head>
 <th:block th:each="bgb : ${backgroundBanner}">
-    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <body style="background-color: grey;" th:background="'/background-banner-image/'+${bgb.getBackgroundBanner()}">
     <header th:insert="blocks/header.html :: header"></header>
     <br>
     <!--Номера телефонов -->
@@ -17,12 +17,12 @@
     </div>
     <br><br>
     <div style="width: 60%; background-color: floralwhite; margin-left: 20%">
-        <div style="width: 1200px; margin-left: 1.25%">
+        <div style="width: 95%; margin-left: 1.25%">
             <div th:each="cinema : ${cinemas}">
-                <img th:src="@{'/image/hall-pictures/'+ ${cinema.topBanner}}" alt="..." width=93%; style="height: 300px; margin-top: 20px">
+                <img th:src="@{'/cinema-images/'+ ${cinema.topBanner}}" alt="..." width=93%; style="height: 300px; margin-top: 20px">
                 <h3 th:text="${cinema.cinemaTitle}"></h3>
-                <img th:src="@{'/image/cinema-pictures/'+ ${cinema.hallPlan}}" alt="..." width=93%; style="height: 150px; width: 250px;">
-                <button class="btn-success" style="height: 75px; width: 300px">Расписание сеансов</button>
+                <img th:src="@{'/cinema-images/'+ ${cinema.hallPlan}}" alt="..." width=93%; style="height: 150px; width: 250px;">
+                <a href="timetable"><button class="btn-success" style="height: 75px; width: 300px">Расписание сеансов</button></a>
                 <br>
                 <div style="display: inline-block"><p th:text="${cinema.description}"></p></div>
                 <br>

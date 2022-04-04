@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
+    <title>Страницы</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -112,265 +112,9 @@
 <body>
 
 <div class="wrapper" style="margin:5%; border-style: groove; border-width: 2px;">
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
-    </div>
-
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Sidebar -->
-        <div class="sidebar">
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                    <br><br>
-                    <!-- Статистика начало-->
-                    <li class="nav-item">
-                        <a th:href="@{/admin-statistics}" class="nav-link">
-                            <p>
-                                Статистика
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <!-- Статистика конец -->
-
-                    <!-- Баннеры/Слайдеры начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Баннеры/слайдеры
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <!-- Баннеры/Слайдеры конец -->
-
-                    <!-- Фильмы начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Фильмы
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-films}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список фильмов</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-film-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница фильма</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Фильмы, конец-->
-
-                    <!-- Кинотеатры начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Кинотеатры
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-cinemas}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список кинотеатров</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-cinema-card}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Карточка кинотеатра</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-hall-card}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Карточка зала</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Кинотеатры, конец-->
-
-                    <!-- Новости начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Новости
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-news}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список новостей</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-news-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница новости</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Новости, конец-->
-
-                    <!-- Акции начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Акции
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-stocks}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список акций</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-stock-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница акции</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Акции, конец-->
-
-                    <!-- Страницы начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Страницы
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-pages}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список страниц</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-main-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Главная страница</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-about-cinema}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>О кинотеатре</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-main-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Кафе-бар</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-vip-hall}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>VIP-зал</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-ad}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Реклама</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-children-room}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Детская комната</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-contacts}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Контакты</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <!-- Страницы, конец-->
-
-                    <!-- Пользователи начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Пользователи
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-users}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список пользователей</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-user-editing}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Редактирование пользователя</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Пользователи, конец-->
-
-                    <!-- Рассылка начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Рассылка
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-mailing}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Настройка рассылки</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-mailing-user-choice}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Выбор пользователей</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Рассылка, конец-->
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
+    <!-- Блок бокового навигационного меню, начало-->
+    <block th:insert="blocks/side-menu.html :: side-menu"></block>
+    <!-- Блок бокового навигационного меню, конец-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -400,21 +144,27 @@
                 <tr th:each="mainPage : ${mainPage}">
                     <td th:text="${mainPage.name}"></td>
                     <td th:text="${mainPage.creatingDate}"></td>
-                    <td th:text="${mainPage.status}"></td>
+                   <!-- <td th:text="${mainPage.status}"></td> -->
+                    <td th:if="${mainPage.status} == true" >Вкл.</td>
+                    <td th:if="${mainPage.status} == false" >Выкл.</td>
                     <td><a th:href="'/admin-main-page-edit/'+${mainPage.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td></td>
                 </tr>
                 <tr th:each="aboutCinema : ${aboutCinema}">
                     <td th:text="${aboutCinema.title}"></td>
                     <td th:text="${aboutCinema.publicDate}"></td>
-                    <td th:text="${aboutCinema.status}"></td>
+                    <!-- <td th:text="${aboutCinema.status}"></td> -->
+                    <td th:if="${aboutCinema.status} == true" >Вкл.</td>
+                    <td th:if="${aboutCinema.status} == false" >Выкл.</td>
                     <td><a th:href="'/admin-about-cinema-edit/'+${aboutCinema.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td></td>
                 </tr>
                 <tr th:each="cafeBar : ${cafeBars}">
                     <td th:text="${cafeBar.title}"></td>
                     <td th:text="${cafeBar.publicDate}"></td>
-                    <td th:text="${cafeBar.status}"></td>
+                   <!-- <td th:text="${cafeBar.status}"></td> -->
+                    <td th:if="${cafeBar.status} == true" >Вкл.</td>
+                    <td th:if="${cafeBar.status} == false" >Выкл.</td>
                     <td><a th:href="'/admin-cafe-bar-edit/'+${cafeBar.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td></td>
                 </tr>
@@ -422,21 +172,27 @@
                 <tr th:each="vipHall : ${vipHall}">
                     <td th:text="${vipHall.title}"></td>
                     <td th:text="${vipHall.publicDate}"></td>
-                    <td th:text="${vipHall.status}"></td>
+                   <!-- <td th:text="${vipHall.status}"></td> -->
+                    <td th:if="${vipHall.status} == true" >Вкл.</td>
+                    <td th:if="${vipHall.status} == false" >Выкл.</td>
                     <td><a th:href="'/admin-vip-hall-edit/'+${vipHall.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td></td>
                 </tr>
                 <tr th:each="ad : ${ad}">
                     <td th:text="${ad.title}"></td>
                     <td th:text="${ad.publicDate}"></td>
-                    <td th:text="${ad.status}"></td>
+                  <!--  <td th:text="${ad.status}"></td>-->
+                    <td th:if="${ad.status} == true" >Вкл.</td>
+                    <td th:if="${ad.status} == false" >Выкл.</td>
                     <td><a th:href="'/admin-ad-edit/'+${ad.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td></td>
                 </tr>
                 <tr th:each="childrenRoom : ${childrenRoom}">
                     <td th:text="${childrenRoom.title}"></td>
                     <td th:text="${childrenRoom.publicDate}"></td>
-                    <td th:text="${childrenRoom.status}"></td>
+                   <!-- <td th:text="${childrenRoom.status}"></td>-->
+                    <td th:if="${childrenRoom.status} == true" >Вкл.</td>
+                    <td th:if="${childrenRoom.status} == false" >Выкл.</td>
                     <td><a th:href="'/admin-children-room-edit/'+${childrenRoom.id}"><button><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td></td>
                 </tr>
@@ -444,14 +200,20 @@
                 <tr th:each="contactsListAdditionalData : ${contactsListAdditionalData}">
                     <td th:text="${contactsListAdditionalData.name}"></td>
                     <td th:text="${contactsListAdditionalData.publicDate}"></td>
-                    <span th:each="status : ${contactsPageStatus}"> <td th:text="${status.status}"></td></span>
+                    <span th:each="status : ${contactsPageStatus}">
+                       <!-- <td th:text="${status.status}"></td>-->
+                        <td th:if="${status.status} == true" >Вкл.</td>
+                        <td th:if="${status.status} == false" >Выкл.</td>
+                    </span>
                     <td><a th:href="admin-contacts"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td></td>
                 </tr>
                 <tr th:each="newPage : ${newPages}">
                     <td th:text="${newPage.title}"></td>
                     <td th:text="${newPage.publicDate}"></td>
-                    <td th:text="${newPage.status}"></td>
+                    <!--<td th:text="${newPage.status}"></td>-->
+                    <td th:if="${newPage.status} == true" >Вкл.</td>
+                    <td th:if="${newPage.status} == false" >Выкл.</td>
                     <td><a th:href="'/admin-pages-new-page-edit/'+${newPage.id}"><button title="Редактировать страницу"><i class="bi bi-pencil-fill"></i></button></a></td>
                     <td>
                         <form th:action="'/admin-pages-new-page-remove/'+${newPage.id}" method="post">

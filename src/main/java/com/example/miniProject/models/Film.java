@@ -70,6 +70,17 @@ public class Film {
     @Column(name = "description", nullable = true, length = 1600)
     private String description;
 
+    @Column(name = "language")
+    private boolean language;
+
+    public boolean isLanguage() {
+        return language;
+    }
+
+    public void setLanguage(boolean language) {
+        this.language = language;
+    }
+
     public void setMovieType2D(boolean movieType2D) {
         this.movieType2D = movieType2D;
     }
@@ -252,5 +263,26 @@ public class Film {
         this.currentOrSoon = currentOrSoon;
         this.title = title;
         this.description = description;
+    }
+
+    public Film(String mainScreen, String screen1, String screen2, String screen3, String screen4, String screen5, String trailerUrl, boolean movieType2D, boolean movieType3D, boolean movieTypeImax, String seoUrl, String seoTitle, String seoKeywords, String seoDescription, boolean currentOrSoon, String title, String description, boolean language) {
+        this.mainScreen = mainScreen;
+        this.screen1 = screen1;
+        this.screen2 = screen2;
+        this.screen3 = screen3;
+        this.screen4 = screen4;
+        this.screen5 = screen5;
+        this.trailerUrl = trailerUrl;
+        this.movieType2D = movieType2D;
+        this.movieType3D = movieType3D;
+        this.movieTypeImax = movieTypeImax;
+        this.seoUrl = seoUrl;
+        this.seoTitle = seoTitle;
+        this.seoKeywords = seoKeywords;
+        this.seoDescription = seoDescription;
+        this.currentOrSoon = currentOrSoon;
+        this.title = title;
+        this.description = description;
+        this.language = language;
     }
 }

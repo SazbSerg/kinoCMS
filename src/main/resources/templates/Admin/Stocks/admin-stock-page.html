@@ -1,31 +1,98 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
-    <meta name="" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.88.1">
-    <title>Добавление фильмов</title>
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Создание страницы акции</title>
 
-    <link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
 
-    <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-    <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
-    <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
-    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
 
+    <style type="text/css">/* Chart.js */
+    @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+
+    <!-- PAGE PLUGINS -->
+    <!-- jQuery Mapael -->
+    <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+    <script src="plugins/raphael/raphael.min.js"></script>
+    <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+    <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+    <!-- ChartJS -->
+    <script src="plugins/chart.js/Chart.min.js"></script>
+
+    <!-- AdminLTE for demo purposes -->
+    <script src="dist/js/demo.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="dist/js/pages/dashboard2.js"></script>
     <style>
-
-        .div-top-banners {
-            display: inline-block;
-            width: 220px;
-            margin-left: 18px;
+        .modal_div, .modal_div2 {
+            width: 300px;
+            height: 300px; /* Рaзмеры дoлжны быть фиксирoвaны */
+            border-radius: 5px;
+            border: 3px #000 solid;
+            background: #fff;
+            position: fixed; /* чтoбы oкнo былo в видимoй зoне в любoм месте */
+            top: 45%; /* oтступaем сверху 45%, oстaльные 5% пoдвинет скрипт */
+            left: 50%; /* пoлoвинa экрaнa слевa */
+            margin-top: -150px;
+            margin-left: -150px; /* oтступaем влевo и вверх минус пoлoвину ширины и высoты сooтветственнo */
+            display: none; /* в oбычнoм сoстoянии oкнa не дoлжнo быть */
+            opacity: 0; /* пoлнoстью прoзрaчнo для aнимирoвaния */
+            z-index: 5; /* oкнo дoлжнo быть нaибoлее бoльшем слoе */
+            padding: 20px 10px;
+        }
+        /* Кнoпкa зaкрыть для тех ктo в тaнке) */
+        .modal_close, .modal_close2 {
+            width: 21px;
+            height: 21px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            display: block;
+        }
+        /* Пoдлoжкa */
+        #overlay, #overlay2 {
+            z-index:3; /* пoдлoжкa дoлжнa быть выше слoев элементoв сaйтa, нo ниже слoя мoдaльнoгo oкнa */
+            position:fixed; /* всегдa перекрывaет весь сaйт */
+            background-color:#000; /* чернaя */
+            opacity:0.8; /* нo немнoгo прoзрaчнa */
+            -moz-opacity:0.8; /* фикс прозрачности для старых браузеров */
+            filter:alpha(opacity=80);
+            width:100%;
+            height:100%; /* рaзмерoм вo весь экрaн */
+            top:0; /* сверху и слевa 0, oбязaтельные свoйствa! */
+            left:0;
+            cursor:pointer;
+            display:none; /* в oбычнoм сoстoянии её нет) */
         }
 
         img[src="#"] {
@@ -33,527 +100,350 @@
 
         }
 
-
-        .bd-placeholder-img {
-            font-size: 1.125rem;
-            text-anchor: middle;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            user-select: none;
-        }
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
+        .div-top-banners {
+            display:inline-block;
+            width: 200px;
+            margin-left: 15px;
         }
     </style>
-
-    <style>
-        .dropbtn {
-            background-color: white;
-            color: black;
-            padding: 16px;
-            font-size: 16px;
-            border: none;
-            cursor: pointer;
-
-        }
-
-        .list { list-style: none;}
-
-        .dropbtn:hover, .dropbtn:focus {
-            background: linear-gradient(to left, white, Gainsboro);
-        }
-
-        .dropdown {
-            position: relative;
-            list-style: none;
-
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: LightGrey;
-            min-width: 160px;
-            overflow: auto;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
-            z-index: 1;
-
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-
-        }
-
-        .dropdown a:hover {background-color: #ddd;}
-
-        .show {display: block;}
-
-        body {
-            background-image: url("https://acegif.com/wp-content/gif/outerspace-6.gif"); /* выходим из папки css на уровень вверх, и заходим в папку img */
-        }
-        /*"https://html-templates.info/images/pages/140520040129.jpg"*/
-    </style>
-    <link href="sidebars.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
 </head>
 
-
 <body>
-<hr>
-<h1>FILM PAGE!</h1>
+
+<div class="wrapper" style="margin:5%; border-style: groove; border-width: 2px;">
+
+    <!-- Блок бокового навигационного меню, начало-->
+    <block th:insert="blocks/side-menu.html :: side-menu"></block>
+    <!-- Блок бокового навигационного меню, конец-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
-<div style="padding-left: 50px; flex: auto; width: 70%;position: relative; margin-left: 15%; margin-top: 5%; margin-bottom: 7%; border-style: solid; background-color: white; display: inline-block; border-radius: 20px;">
+    <hr style="width: 100%">
+    <div style="margin-left: 17%; margin-right: 2%; margin-top: 2%; margin-bottom: 2%; background-color: #9e9ca6" >
 
-    <div style="position: fixed; margin-left: -355px; background-color: white; border-radius: 20px; border-style: solid">
-        <ul style="width: 300px; display: inline-block;">
-            <li class="dropdown">
-                <button  class="dropbtn" onclick="window.location.href='admin-statistics'">
-                    Статистика
-                </button>
-            </li>
+        <div style="border-style: groove; border-radius: 15px; width: 95%; height: auto; margin-bottom: 50px; margin-left: 30px">
 
+            <div class="row g-3" style="display: inline-block; width: 1250px">
+                <div class="container mt-5 mb-5">
 
+                    <form method="post" enctype="multipart/form-data" onsubmit="return checkform1(this)">
 
-            <li class="dropdown">
-                <button  class="dropbtn" onclick="window.location.href='admin-banners'">
-                    Баннеры/слайдеры
-                </button>
-            </li>
+                        <div style="display:inline-block; width: 900px; padding-left: 760px ">
+                            <label>Вкл.
+                                <input type="radio" required name="status" text="Вкл." value="1"/> Выкл.
+                                <input type="radio" required name="status" text="Выкл." value="0"/></label>
+                        </div>
 
+                        <div style="display:inline-block; padding-left: 50px" >
+                            <label>Украинский
+                                <input type="radio" required name="language" text="Украинский" value="1"/></label>
 
+                            <label>Русский
+                                <input type="radio" required name="language" text="Русский" value="0"/></label>
+                        </div>
 
-            <li class="dropdown">
-                <button onclick="myFunction()" class="dropbtn">
-                    Фильмы
-                </button>
-                <div id="myDropdown" class="dropdown-content">
-                    <ul class="list">
-                        <li><a th:href="@{admin-films}">Фильмы</a></li>
-                        <li><a th:href="@{admin-film-page}">Страница фильма</a></li>
-                    </ul>
-                </div>
-            </li>
+                        <br>
 
+                        <div style="display:inline-block;">
+                            <label>Название акции<input type="text" required name="title" class="form-control" placeholder="Название акции"/></label>
+                        </div>
 
+                        <div>
+                            <label>
+                                Дата публикации
+                                <input type="date" required name="publicDate" class="form-control mb-2 mt-2" >
+                            </label>
+                        </div>
 
-            <li class="dropdown">
-                <button onclick="myFunction1()" class="dropbtn">
-                    Кинотеатры
-                </button>
-                <div id="myDropdown1" class="dropdown-content">
-                    <ul class="list" >
-                        <li><a th:href="@{admin-cinemas}">Кинотеатры</a></li>
-                        <li><a th:href="@{admin-cinema-card}">Карточка кинотеатра</a></li>
-                        <li><a th:href="@{admin-hall-card}">Карточка зала</a></li>
-                    </ul>
-                </div>
-            </li>
+                        <div>
+                            <label for="description" class="form-label">Описание</label>
+                            <textarea name="description" required id="description" placeholder="текст" class="form-control"></textarea>
+                        </div>
 
+                        <br><br><br>
 
+                        <div class="custom-file">
+                            <label class="custom-file-label" for="mainImage">Главная картинка</label>
+                            <input type="file" required name="mainImage" class="form-control1" id="mainImage" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                            <img id="prevImage" class="form-control" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
+                            <button type="button" onclick="resetFile()">Удалить</button>
+                        </div>
 
-            <li class="dropdown">
-                <button onclick="myFunction2()" class="dropbtn">
-                    Новости
-                </button>
-                <div id="myDropdown2" class="dropdown-content">
-                    <ul class="list">
-                        <li><a th:href="@{admin-news}">Новости</a></li>
-                        <li><a th:href="@{admin-news-page}">Страница новости</a></li>
-                    </ul>
-                </div>
-            </li>
+                        <br><br>
+
+                        <div class="div-top-banners">
+                            <input type="file" required name="image1" class="form-control" id="image1" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                            <img id="prevImage1" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
+                            <button type="button" onclick="resetFile1()">Удалить</button>
+                        </div>
 
 
+                        <div class="div-top-banners">
+                            <input type="file" required name="image2" class="form-control" id="image2" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                            <img id="prevImage2" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
+                            <button type="button" onclick="resetFile2()">Удалить</button>
+                        </div>
 
-            <li class="dropdown">
-                <button onclick="myFunction3()" class="dropbtn">
-                    Акции
-                </button>
-                <div id="myDropdown3" class="dropdown-content">
-                    <ul class="list">
-                        <li><a th:href="@{admin-stocks}">Акции</a></li>
-                        <li><a th:href="@{admin-stock-page}">Страница акции</a></li>
-                    </ul>
-                </div>
-            </li>
+                        <div class="div-top-banners">
+                            <input type="file" required name="image3" class="form-control" id="image3" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                            <img id="prevImage3" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
+                            <button type="button" onclick="resetFile3()">Удалить</button>
+                        </div>
 
-
-
-            <li class="dropdown">
-                <button onclick="myFunction4()" class="dropbtn">
-                    Страницы
-                </button>
-                <div id="myDropdown4" class="dropdown-content">
-                    <ul class="list" >
-                        <li><a th:href="@{admin-pages}">Страницы</a></li>
-                        <li><a th:href="@{admin-main-page}">Главная страница</a></li>
-                        <li><a th:href="@{admin-about-cinema}">О кинотеатре</a></li>
-                        <li><a th:href="@{admin-cafe-bar}">Кафе-бар</a></li>
-                        <li><a th:href="@{admin-vip-hall}">VIP-зал</a></li>
-                        <li><a th:href="@{admin-ad}">Реклама</a></li>
-                        <li><a th:href="@{admin-children-room}">Детская комната</a></li>
-                        <li><a th:href="@{admin-contacts}">Контакты</a></li>
-                    </ul>
-                </div>
-            </li>
+                        <div class="div-top-banners">
+                            <input type="file" required name="image4" class="form-control" id="image4" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                            <img id="prevImage4" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
+                            <button type="button" onclick="resetFile4()">Удалить</button>
+                        </div>
 
 
+                        <div class="div-top-banners">
+                            <input type="file" required name="image5" class="form-control" id="image5" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                            <img id="prevImage5" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
+                            <button type="button" onclick="resetFile5()">Удалить</button>
+                        </div>
 
-            <li class="dropdown">
-                <button onclick="myFunction5()" class="dropbtn">
-                    Пользователи
-                </button>
-                <div id="myDropdown5" class="dropdown-content">
-                    <ul class="list">
-                        <li><a th:href="@{admin-users}">Пользователи</a></li>
-                        <li><a th:href="@{admin-user-editing}">Редактирование пользователя</a></li>
-                    </ul>
-                </div>
-            </li>
+                        <br><br>
+
+                        <div>
+                            <label for="videoLink" required class="form-label">Ссылка на видео</label><br>
+                            <input type="url" name="videoLink" id="videoLink" placeholder="Ссылка на видео в youtube" class="form-control"/>
+                        </div>
+
+                        <br><br>
 
 
+                        <p>SEO блок:</p>
 
-            <li class="dropdown">
-                <button onclick="myFunction6()" class="dropbtn">
-                    Рассылка
-                </button>
-                <div id="myDropdown6" class="dropdown-content">
-                    <ul class="list">
-                        <li><a th:href="@{admin-mailing}">Рассылка</a></li>
-                        <li><a th:href="@{admin-user-choice}">Выбор пользователей</a></li>
-                    </ul>
-                </div>
-            </li>
-        </ul>
-    </div>
+                        <div style="width: 800px; margin-left: 200px">
 
-    <div class="row g-3" style="display: inline-block; width: 1250px">
-        <div class="container mt-5 mb-5">
+                            <label for="seoUrl" class="form-label">URL:</label><br>
+                            <input type="url" required name="seoUrl" id="seoUrl" placeholder="URL" value="" class="form-control"/><br>
 
-            <form method="post" onsubmit="return checkform1(this)">
+                            <label for="seoTitle" class="form-label">Title:</label><br>
+                            <input type="text" required name="seoTitle" id="seoTitle" placeholder="Title" value="" class="form-control"/><br>
 
-                <div style="display:inline-block; width: 900px; padding-left: 760px ">
-                    <label>Вкл.
-                        <input type="radio" name="status" text="Вкл." value="1"/> Выкл.
-                        <input type="radio" name="status" text="Выкл." value="0"/></label>
+                            <label for="seoKeywords" class="form-label">Keywords:</label><br>
+                            <input type="text" required name="seoKeywords" id="seoKeywords" placeholder="word" value="" class="form-control"/><br>
+
+                            <label for="seoDescription" class="form-label">Description:</label>
+                            <textarea name="seoDescription" required id="seoDescription" placeholder="Description" class="form-control"></textarea>
+
+                        </div>
+
+
+                        <br><br>
+                        <div id="error" style="color:red;"></div>
+
+                        <button type="submit" class="btn btn-success" style="margin-left: 540px" >Сохранить</button>
+                    </form>
                 </div>
 
-                <div style="display:inline-block; padding-left: 50px" >
-                    <label>Украинский
-                        <input type="radio" name="language" text="Украинский" value="1"/></label>
+            </div>
 
-                    <label>Русский
-                        <input type="radio" name="language" text="Русский" value="0"/></label>
-                </div>
-
-                <br>
-
-                <div style="display:inline-block;">
-                    <label>Название акции<input type="text" name="title" class="form-control" placeholder="Название акции"/></label>
-                </div>
-
-                <div>
-                    <label>
-                        Дата публикации
-                        <input type="date" name="publicDate" class="form-control mb-2 mt-2" >
-                    </label>
-                </div>
-
-                <div>
-                    <label for="description" class="form-label">Описание</label>
-                    <textarea name="description" id="description" placeholder="текст" class="form-control"></textarea>
-                </div>
-
-                <br><br><br>
-
-                <div class="custom-file">
-                    <label class="custom-file-label" for="mainImage">Главная картинка</label>
-                    <input type="file" name="mainImage" class="form-control1" id="mainImage" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage" class="form-control" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile()">Удалить</button>
-                </div>
-
-                <br><br>
-
-                <div style="display: inline-block; width: 220px;">
-                    <input type="file" name="image1" class="form-control" id="image1" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage1" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile1()">Удалить</button>
-                </div>
-
-
-                <div class="div-top-banners">
-                    <input type="file" name="image2" class="form-control" id="image2" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage2" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile2()">Удалить</button>
-                </div>
-
-                <div class="div-top-banners">
-                    <input type="file" name="image3" class="form-control" id="image3" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage3" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile3()">Удалить</button>
-                </div>
-
-                <div class="div-top-banners">
-                    <input type="file" name="image4" class="form-control" id="image4" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage4" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile4()">Удалить</button>
-                </div>
-
-
-                <div class="div-top-banners">
-                    <input type="file" name="image5" class="form-control" id="image5" accept="image/png, image/jpeg, image/gif"/>
-                    <img id="prevImage5" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                    <button onclick="resetFile5()">Удалить</button>
-                </div>
-
-                <br><br>
-
-                <div>
-                    <label for="videoLink" class="form-label">Ссылка на трейлер</label><br>
-                    <input type="text" name="videoLink" id="videoLink" placeholder="Ссылка на видео в youtube" class="form-control"/>
-                </div>
-
-                <br><br>
-
-
-                <p>SEO блок:</p>
-
-                <div style="width: 800px; margin-left: 200px">
-
-                    <label for="seoUrl" class="form-label">URL:</label><br>
-                    <input type="text" name="seoUrl" id="seoUrl" placeholder="URL" value="" class="form-control"/><br>
-
-                    <label for="seoTitle" class="form-label">Title:</label><br>
-                    <input type="text" name="seoTitle" id="seoTitle" placeholder="Title" value="" class="form-control"/><br>
-
-                    <label for="seoKeywords" class="form-label">Keywords:</label><br>
-                    <input type="text" name="seoKeywords" id="seoKeywords" placeholder="word" value="" class="form-control"/><br>
-
-                    <label for="seoDescription" class="form-label">Description:</label>
-                    <textarea name="seoDescription" id="seoDescription" placeholder="Description" class="form-control"></textarea>
-
-                </div>
-
-
-                <br><br>
-                <div id="error" style="color:red;"></div>
-
-                <button type="submit" class="btn btn-success" style="margin-left: 540px" >Сохранить</button>
-            </form>
         </div>
+
+
+
     </div>
+
+    <!--Предпросмотр картинки-->
+
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#prevImage').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#mainImage").change(function() {
+            readURL(this);
+        });
+
+        function readURL1(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#prevImage1').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#image1").change(function() {
+            readURL1(this);
+        });
+
+
+
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#prevImage2').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#image2").change(function() {
+            readURL2(this);
+        });
+
+
+
+        function readURL3(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#prevImage3').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#image3").change(function() {
+            readURL3(this);
+        });
+
+
+
+        function readURL4(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#prevImage4').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#image4").change(function() {
+            readURL4(this);
+        });
+
+
+
+        function readURL5(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('#prevImage5').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $("#image5").change(function() {
+            readURL5(this);
+        });
+        /*скрипт, отвечающий за предпросмотр картинки*/
+    </script>
+    <!--Добавление и удаление изображения-->
+
+    <script>
+        function resetFile0() {
+            const file0 = document.querySelector('#hallPlan');
+            file0.value = '';
+            document.getElementById("prevImage0").src="#";
+        }
+
+        function resetFile() {
+            const file = document.querySelector('#topBanner');
+            file.value = '';
+            document.getElementById("prevImage").src="#";
+        }
+
+
+        function resetFile1() {
+            const file1 = document.querySelector('#image1');
+            file1.value = '';
+            document.getElementById("prevImage1").src="#";
+        }
+
+        function resetFile2() {
+            const file2 = document.querySelector('#image2');
+            file2.value = '';
+            document.getElementById("prevImage2").src="#";
+        }
+
+        function resetFile3() {
+            const file3 = document.querySelector('#image3');
+            file3.value = '';
+            document.getElementById("prevImage3").src="#";
+        }
+
+        function resetFile4() {
+            const file4 = document.querySelector('#image4');
+            file4.value = '';
+            document.getElementById("prevImage4").src="#";
+        }
+
+        function resetFile5() {
+            const file5 = document.querySelector('#image5');
+            file5.value = '';
+            document.getElementById("prevImage5").src="#";
+        }
+    </script>
+
+
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</div>
 
-<!--Добавление и удаление изображения-->
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->
+</div>
+
+
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    function resetFile() {
-        const file = document.querySelector('#mainImage');
-        file.value = '';
-        document.getElementById("prevImage").src="#";
-    }
-
-
-    function resetFile1() {
-        const file1 = document.querySelector('#image1');
-        file1.value = '';
-        document.getElementById("prevImage1").src="#";
-    }
-
-    function resetFile2() {
-        const file2 = document.querySelector('#image2');
-        file2.value = '';
-        document.getElementById("prevImage2").src="#";
-    }
-
-    function resetFile3() {
-        const file3 = document.querySelector('#image3');
-        file3.value = '';
-        document.getElementById("prevImage3").src="#";
-    }
-
-    function resetFile4() {
-        const file4 = document.querySelector('#image4');
-        file4.value = '';
-        document.getElementById("prevImage4").src="#";
-    }
-
-    function resetFile5() {
-        const file5 = document.querySelector('#image5');
-        file5.value = '';
-        document.getElementById("prevImage5").src="#";
-    }
+    $.widget.bridge('uibutton', $.ui.button)
 </script>
-
-
-<script>
-    /*скрипт, отвечающий за проверку полей*/
-    function checkform1(element) {
-        var title = element.title.value;
-        var description = element.description.value;
-        var fail = "";
-        if (title.length < 1 || title.length >50)
-            fail = "Пожалуйста, введите название фильма (от 1 до 50 символов)";
-        else if (description.length < 1)
-            fail = "Пожалуйста, введите описание фильма (до 1600 символов)"
-        if (fail != "") {
-            document.getElementById('error').innerHTML = fail;
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-</script>
-
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#prevImage').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#mainImage").change(function() {
-        readURL(this);
-    });
-
-
-    function readURL1(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#prevImage1').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#image1").change(function() {
-        readURL1(this);
-    });
-
-
-
-    function readURL2(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#prevImage2').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#image2").change(function() {
-        readURL2(this);
-    });
-
-
-
-    function readURL3(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#prevImage3').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#image3").change(function() {
-        readURL3(this);
-    });
-
-
-
-    function readURL4(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#prevImage4').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#image4").change(function() {
-        readURL4(this);
-    });
-
-
-
-    function readURL5(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $('#prevImage5').attr('src', e.target.result);
-            }
-
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-    $("#image5").change(function() {
-        readURL5(this);
-    });
-    /*скрипт, отвечающий за предпросмотр картинки*/
-
-
-
-
-
-    function myFunction() {
-        document.getElementById("myDropdown").classList.toggle("show");
-    }
-    function myFunction1() {
-        document.getElementById("myDropdown1").classList.toggle("show");
-    }
-    function myFunction2() {
-        document.getElementById("myDropdown2").classList.toggle("show");
-    }
-    function myFunction3() {
-        document.getElementById("myDropdown3").classList.toggle("show");
-    }
-    function myFunction4() {
-        document.getElementById("myDropdown4").classList.toggle("show");
-    }
-    function myFunction5() {
-        document.getElementById("myDropdown5").classList.toggle("show");
-    }
-    function myFunction6() {
-        document.getElementById("myDropdown6").classList.toggle("show");
-    }
-    // Закрыть раскрывающийся список, если пользователь щелкнет за его пределами.
-    window.onclick = function(event) {
-        if (!event.target.matches('.dropbtn')) {
-            var dropdowns = document.getElementsByClassName("dropdown-content");
-            var i;
-            for (i = 0; i < dropdowns.length; i++) {
-                var openDropdown = dropdowns[i];
-                if (openDropdown.classList.contains('show')) {
-                    openDropdown.classList.remove('show');
-                }
-            }
-        }
-    }</script>
+<!-- Bootstrap 4 -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+<!-- Sparkline -->
+<script src="plugins/sparklines/sparkline.js"></script>
+<!-- JQVMap -->
+<script src="plugins/jqvmap/jquery.vmap.min.js"></script>
+<script src="plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<!-- jQuery Knob Chart -->
+<script src="plugins/jquery-knob/jquery.knob.min.js"></script>
+<!-- daterangepicker -->
+<script src="plugins/moment/moment.min.js"></script>
+<script src="plugins/daterangepicker/daterangepicker.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<!-- Summernote -->
+<script src="plugins/summernote/summernote-bs4.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="dist/js/demo.js"></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="dist/js/pages/dashboard.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
 </body>
 </html>

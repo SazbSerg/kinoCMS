@@ -19,10 +19,17 @@ public class AdminMainPageController {
     }
 
     @PostMapping("/admin-main-page")
-    public String postMainPage(@RequestParam String name, @RequestParam String phoneNumber1, @RequestParam String phoneNumber2,
-                               @RequestParam boolean language, @RequestParam boolean status,
-                               @RequestParam String seoText, @RequestParam String seoUrl, @RequestParam String seoTitle,
-                               @RequestParam String seoKeywords, @RequestParam String seoDescription, @RequestParam String creatingDate){
+    public String postMainPage(@RequestParam String name,
+                               @RequestParam String phoneNumber1,
+                               @RequestParam String phoneNumber2,
+                               @RequestParam boolean language,
+                               @RequestParam boolean status,
+                               @RequestParam String seoText,
+                               @RequestParam String seoUrl,
+                               @RequestParam String seoTitle,
+                               @RequestParam String seoKeywords,
+                               @RequestParam String seoDescription,
+                               @RequestParam String creatingDate){
         MainPage mainPage = new MainPage(name, phoneNumber1, phoneNumber2, language, status, seoText,
                  seoUrl, seoTitle, seoKeywords, seoDescription, creatingDate);
         mainPageRepository.save(mainPage);

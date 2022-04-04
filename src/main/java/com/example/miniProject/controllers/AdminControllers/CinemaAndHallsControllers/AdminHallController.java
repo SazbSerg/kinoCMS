@@ -6,6 +6,7 @@ import com.example.miniProject.models.TestPackage.ChildClass;
 import com.example.miniProject.models.TestPackage.ParentClass;
 import com.example.miniProject.repo.CinemaAndHallRepos.CinemaRepository;
 import com.example.miniProject.repo.CinemaAndHallRepos.HallRepository;
+import com.example.miniProject.services.adminCinemaAndHallServices.AdminCinemaAndHallService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -26,6 +29,9 @@ public class AdminHallController {
     @Autowired
     private HallRepository hallRepository;
 
+    @Autowired
+    private AdminCinemaAndHallService adminCinemaAndHallService;
+
 
     //Переход на страницу создания нового зала с привязкой к id текущего кинотеатра
     @GetMapping("/admin-hall-card/{id}")
@@ -34,21 +40,26 @@ public class AdminHallController {
     }
 
 
-    //Сохранение изменеий созданного зала с переходом на страницу текущего кинотеатра по его id
+    //Сохранение созданного зала с переходом на страницу текущего кинотеатра по его id
     @PostMapping("/admin-hall-card/{id}")
-    public String postHallCardPage(@PathVariable(value = "id") long id, @RequestParam String hallNumber, @RequestParam String description, @RequestParam String hallPlan,
-                              @RequestParam boolean language,
-                              @RequestParam String topImage, @RequestParam String image1, @RequestParam String image2,
-                              @RequestParam String image3, @RequestParam String image4, @RequestParam String image5,
-                              @RequestParam String seoUrl, @RequestParam String seoTitle,
-                              @RequestParam String seoKeywords, @RequestParam String seoDescription, @RequestParam String localDate){
-        Cinema cinema = cinemaRepository.findById(id).orElseThrow();
-        List<Hall> halls = cinema.getHalls();
-        halls.add(new Hall(hallNumber, description, hallPlan, language, topImage, image1, image2, image3, image4, image5,
-                seoUrl, seoTitle, seoKeywords, seoDescription, localDate));
-        cinema.setHalls(halls);
-        cinemaRepository.save(cinema);
-        return "redirect:/admin-cinema-card-options/{id}";
+    public String postHallCardPage(@PathVariable(value = "id") long id,
+                                   @RequestParam String hallNumber,
+                                   @RequestParam String description,
+                                   @RequestParam("hallPlan") MultipartFile fileHallPlan,
+                                   @RequestParam boolean language,
+                                   @RequestParam("topImage") MultipartFile file,
+                                   @RequestParam("image1") MultipartFile file1,
+                                   @RequestParam("image2") MultipartFile file2,
+                                   @RequestParam("image3") MultipartFile file3,
+                                   @RequestParam("image4") MultipartFile file4,
+                                   @RequestParam("image5") MultipartFile file5,
+                                   @RequestParam String seoUrl,
+                                   @RequestParam String seoTitle,
+                                   @RequestParam String seoKeywords,
+                                   @RequestParam String seoDescription,
+                                   @RequestParam String localDate) throws IOException {
+                adminCinemaAndHallService.saveHallData(id, hallNumber, description, fileHallPlan, language, file, file1, file2, file3, file4, file5, seoUrl, seoTitle, seoKeywords, seoDescription, localDate);
+                return "redirect:/admin-cinema-card-options/{id}";
     }
 
 
@@ -69,37 +80,31 @@ public class AdminHallController {
        if (!cinemaRepository.existsById(idCinema)) {
            return "redirect:/admin-cinema-card-options/{id_cinema}";}
        Hall hall = hallRepository.findById(idHall).orElseThrow();
-       model.addAttribute("hall", hall);
+       model.addAttribute("halls", hall);
        return "/Admin/CinemasAndHalls/admin-hall-card-edit";
    }
 
 
    //Сохранение изменений редактирования зала
    @PostMapping("/admin-hall-card-edit/{id_cinema}/{id_hall}")
-   public String hallCardEditPost(@PathVariable(value = "id_cinema") long idCinema, @PathVariable(value = "id_hall") long idHall,
-                                  @RequestParam String hallNumber, @RequestParam String description, @RequestParam String hallPlan,
+   public String hallCardEditPost(@PathVariable(value = "id_cinema") long idCinema,
+                                  @PathVariable(value = "id_hall") long idHall,
+                                  @RequestParam String hallNumber,
+                                  @RequestParam String description,
+                                  @RequestParam("hallPlan") MultipartFile fileHallPlan,
                                   @RequestParam boolean language,
-                                  @RequestParam String topImage, @RequestParam String image1, @RequestParam String image2,
-                                  @RequestParam String image3, @RequestParam String image4, @RequestParam String image5,
-                                  @RequestParam String seoUrl, @RequestParam String seoTitle,
-                                  @RequestParam String seoKeywords, @RequestParam String seoDescription, @RequestParam String localDate){
-       Hall hall = hallRepository.findById(idHall).orElseThrow();
-       hall.setHallNumber(hallNumber);
-       hall.setDescription(description);
-       hall.setHallPlan(hallPlan);
-       hall.setLanguage(language);
-       hall.setTopImage(topImage);
-       hall.setImage1(image1);
-       hall.setImage2(image2);
-       hall.setImage3(image3);
-       hall.setImage4(image4);
-       hall.setImage5(image5);
-       hall.setSeoUrl(seoUrl);
-       hall.setSeoTitle(seoTitle);
-       hall.setSeoKeywords(seoKeywords);
-       hall.setSeoDescription(seoDescription);
-       hall.setLocalDate(localDate);
-       hallRepository.save(hall);
+                                  @RequestParam("topImage") MultipartFile file,
+                                  @RequestParam("image1") MultipartFile file1,
+                                  @RequestParam("image2") MultipartFile file2,
+                                  @RequestParam("image3") MultipartFile file3,
+                                  @RequestParam("image4") MultipartFile file4,
+                                  @RequestParam("image5") MultipartFile file5,
+                                  @RequestParam String seoUrl,
+                                  @RequestParam String seoTitle,
+                                  @RequestParam String seoKeywords,
+                                  @RequestParam String seoDescription,
+                                  @RequestParam String localDate) throws IOException {
+       adminCinemaAndHallService.saveHallData(idCinema, idHall, hallNumber, description, fileHallPlan, language, file, file1, file2, file3, file4, file5, seoUrl, seoTitle, seoKeywords, seoDescription, localDate);
        return "redirect:/admin-cinema-card-options/{id_cinema}";
    }
 }

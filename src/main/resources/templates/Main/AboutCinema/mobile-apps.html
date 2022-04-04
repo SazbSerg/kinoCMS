@@ -7,7 +7,7 @@
     <style th:insert="blocks/style.html :: style"></style>
 </head>
 <th:block th:each="bgb : ${backgroundBanner}">
-    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <body style="background-color: grey;" th:background="'/background-banner-image/'+${bgb.getBackgroundBanner()}">
     <header th:insert="blocks/header.html :: header"></header>
     <!--Номера телефонов -->
     <div th:each="mainPage : ${mainPages}" style="margin-left: 90%; color: whitesmoke; font-size: large">

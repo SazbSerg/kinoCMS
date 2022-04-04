@@ -1,6 +1,7 @@
 package com.example.miniProject.controllers.AdminControllers;
 import com.example.miniProject.models.ChildrenRoom;
 import com.example.miniProject.repo.ChildrenRoomRepository;
+import com.example.miniProject.services.adminChildrenRoomServices.AdminChildrenRoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,6 +9,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -16,6 +20,9 @@ public class AdminChildrenRoomEditController {
 
     @Autowired
     ChildrenRoomRepository childrenRoomRepository;
+
+    @Autowired
+    AdminChildrenRoomService adminChildrenRoomService;
 
     @GetMapping("/admin-children-room-edit/{id}")
     public String getChildrenRoomEdit(@PathVariable(value = "id") long id, Model model) {
@@ -35,33 +42,17 @@ public class AdminChildrenRoomEditController {
                                        @RequestParam String publicDate,
                                        @RequestParam boolean language,
                                        @RequestParam boolean status,
-                                       @RequestParam String mainImage,
-                                       @RequestParam String image1,
-                                       @RequestParam String image2,
-                                       @RequestParam String image3,
-                                       @RequestParam String image4,
-                                       @RequestParam String image5,
+                                       @RequestParam("mainImage") MultipartFile file,
+                                       @RequestParam("image1") MultipartFile file1,
+                                       @RequestParam("image2") MultipartFile file2,
+                                       @RequestParam("image3") MultipartFile file3,
+                                       @RequestParam("image4") MultipartFile file4,
+                                       @RequestParam("image5") MultipartFile file5,
                                        @RequestParam String seoUrl,
                                        @RequestParam String seoTitle,
                                        @RequestParam String seoKeywords,
-                                       @RequestParam String seoDescription){
-        ChildrenRoom childrenRoom = childrenRoomRepository.findById(id).orElseThrow();
-        childrenRoom.setTitle(title);
-        childrenRoom.setDescription(description);
-        childrenRoom.setPublicDate(publicDate);
-        childrenRoom.setLanguage(language);
-        childrenRoom.setStatus(status);
-        childrenRoom.setMainImage(mainImage);
-        childrenRoom.setImage1(image1);
-        childrenRoom.setImage2(image2);
-        childrenRoom.setImage3(image3);
-        childrenRoom.setImage4(image4);
-        childrenRoom.setImage5(image5);
-        childrenRoom.setSeoUrl(seoUrl);
-        childrenRoom.setSeoTitle(seoTitle);
-        childrenRoom.setSeoKeywords(seoKeywords);
-        childrenRoom.setSeoDescription(seoDescription);
-        childrenRoomRepository.save(childrenRoom);
+                                       @RequestParam String seoDescription) throws IOException {
+        adminChildrenRoomService.saveChildrenRoomData(id, title, description, publicDate, language, status, file, file1, file2, file3, file4, file5, seoUrl, seoTitle, seoKeywords, seoDescription);
         return "redirect:/admin-pages";
     }
 }

@@ -28,7 +28,7 @@ public class AdminMailingController {
     }
 
     @PostMapping("/admin-mailing")
-    public String postMail(//@RequestParam boolean choiceUserToSendSms,
+    public String postMail(@RequestParam boolean choiceUserToSendEmail,
                            @RequestParam String textToSendEmail){
      //  if (!choiceUserToSendSms){
      //      return  "/Admin/Mailing/admin-mailing";
@@ -41,37 +41,49 @@ public class AdminMailingController {
       // System.out.println("Рассылка сообщений для ВСЕХ пользователей успешно завершена!");
 
 
+        Iterable<User> users = userRepository.findAll();
+        SimpleMailMessage message = new SimpleMailMessage();
+        if (choiceUserToSendEmail){
+            System.out.println("Начинаю рассылку для ВСЕХ пользователей.");
+       for(User selectedUsers: users){
+           message.setTo(selectedUsers.geteMail());
+           message.setText(textToSendEmail);
+           this.emailSender.send(message);
+       }} else {
+            System.out.println("Начинаю рассылку для выбранных пользователей");
+             for(User selectedUsers2: users){
+                 if(selectedUsers2.isCheckForMail()) {
+                     message.setTo(selectedUsers2.geteMail());
+                     message.setText(textToSendEmail);
+                     this.emailSender.send(message);
 
-      // Iterable<User> users = userRepository.findAll();
-      // SimpleMailMessage message = new SimpleMailMessage();
-      // System.out.println("Начинаю рассылку для ВСЕХ пользователей.");
-      // for(User selectedUsers: users){
-      //     message.setTo(selectedUsers.geteMail());
-      //     message.setText(textToSendEmail);
-      //     this.emailSender.send(message);
-      // }
+                     selectedUsers2.setCheckForMail(false);
+                     userRepository.save(selectedUsers2);
+                 }
+             }
+         }
 
 
 
-      SimpleMailMessage message = new SimpleMailMessage();
-      message.setTo(MyConstants.FRIEND_EMAIL);
-      message.setSubject("Test Simple Email");
-      message.setText(textToSendEmail);
+        // SimpleMailMessage message = new SimpleMailMessage();
+        // message.setTo(MyConstants.FRIEND_EMAIL);
+        // message.setSubject("Test Simple Email");
+        // message.setText(textToSendEmail);
 
           // Send Message!
-       this.emailSender.send(message);
+      // this.emailSender.send(message);
 
 
         return "/Admin/Mailing/admin-mailing";
 
     }
 
-    @Autowired
-    SMSRepository smsRepository;
-
-    @RequestMapping(value="/admin-mailing", method= RequestMethod.POST, produces = "application/json", consumes="application/json")
-    @ResponseBody
-    public SmsModel postTestRequest(@RequestBody String json) {
-        return smsRepository.save(new SmsModel(json));
-    }
+ //  @Autowired
+ //  SMSRepository smsRepository;
+ //
+ //  @RequestMapping(value="/admin-mailing", method= RequestMethod.POST, produces = "application/json", consumes="application/json")
+ //  @ResponseBody
+ //  public SmsModel postTestRequest(@RequestBody String json) {
+ //      return smsRepository.save(new SmsModel(json));
+ //  }
 }

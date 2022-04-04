@@ -1,128 +1,34 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AdminLTE 3 | Dashboard</title>
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="/templates/Admin/Films/dist/css/adminlte.min.css">
-
-
-     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-
-
-    <!-- Daterange picker -->
-    <link rel="stylesheet" href="jetbrains://idea/navigate/reference?project=miniProject&path=static/plugins/daterangepicker/daterangepicker.css">plugins/daterangepicker/daterangepicker.css
-    <!-- summernote -->
-    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
+    <meta name="" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.88.1">
+    <title>Редактирование фильма</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sidebars/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+    <link href="/docs/5.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="/templates/Admin/Films/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <link rel="apple-touch-icon" href="/docs/5.1/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
+    <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.0/font/bootstrap-icons.css" integrity="sha384-7ynz3n3tAGNUYFZD3cWe5PDcE36xj85vyFkawcF6tIwxvIecqKvfwLiaFdizhPpN" crossorigin="anonymous">
+    <meta name="theme-color" content="#7952b3">
 
-    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-
-
-    <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
-    <!-- Tempusdominus Bootstrap 4 -->
-    <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
-    <!-- iCheck -->
-    <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
-    <!-- JQVMap -->
-    <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="dist/css/adminlte.min.css">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
-
-    <!-- summernote -->
-    <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
-
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-
-    <style type="text/css">/* Chart.js */
-    @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}</style>
-
-    <script src="plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- overlayScrollbars -->
-    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="dist/js/adminlte.js"></script>
-
-    <!-- PAGE PLUGINS -->
-    <!-- jQuery Mapael -->
-    <script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-    <script src="plugins/raphael/raphael.min.js"></script>
-    <script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-    <script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-    <!-- ChartJS -->
-    <script src="plugins/chart.js/Chart.min.js"></script>
-
-    <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <script src="dist/js/pages/dashboard2.js"></script>
-    <style type="text/css">/* Chart.js */
-    @keyframes chartjs-render-animation{from{opacity:.99}to{opacity:1}}.chartjs-render-monitor{animation:chartjs-render-animation 1ms}.chartjs-size-monitor,.chartjs-size-monitor-expand,.chartjs-size-monitor-shrink{position:absolute;direction:ltr;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1}.chartjs-size-monitor-expand>div{position:absolute;width:1000000px;height:1000000px;left:0;top:0}.chartjs-size-monitor-shrink>div{position:absolute;width:200%;height:200%;left:0;top:0}
-
-
-        @media (min-width: 768px) {
-            .bd-placeholder-img-lg {
-                font-size: 3.5rem;
-            }
-        }
-
-            img[src="#"] {
-            display: none;
-
-        }
+    <style>
 
         .div-top-banners {
             display: inline-block;
-            margin-left: 20px;
-            padding-right: 10px;
-            margin-right: 10px;
+            width: 220px;
+            margin-left: 18px;
         }
+
         img[src="#"] {
             display: none;
 
@@ -137,514 +43,511 @@
             user-select: none;
         }
 
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
     </style>
+
+    <style>
+        .dropbtn {
+            background-color: white;
+            color: black;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+
+        }
+
+        .list { list-style: none;}
+
+        .dropbtn:hover, .dropbtn:focus {
+            background: linear-gradient(to left, white, Gainsboro);
+        }
+
+        .dropdown {
+            position: relative;
+            list-style: none;
+
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: LightGrey;
+            min-width: 160px;
+            overflow: auto;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+            z-index: 1;
+
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+
+        }
+
+        .dropdown a:hover {background-color: #ddd;}
+
+        .show {display: block;}
+
+        body {
+            background-image: url("https://acegif.com/wp-content/gif/outerspace-6.gif"); /* выходим из папки css на уровень вверх, и заходим в папку img */
+        }
+        /*"https://html-templates.info/images/pages/140520040129.jpg"*/
+    </style>
+
+    <link rel="stylesheet" href="https://unpkg.com/mustard-ui@latest/dist/css/mustard-ui.min.css">
 </head>
 
-<body class="hold-transition dark-mode sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 
-<div class="wrapper" style="margin:5%; border-style: groove; border-width: 2px;">
-    <!-- Preloader -->
-    <div class="preloader flex-column justify-content-center align-items-center">
-        <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+<body>
+<hr>
+<h1></h1>
+
+
+<div style="padding-left: 50px; flex: auto; width: 70%;position: relative; margin-left: 15%; margin-top: 5%; margin-bottom: 7%; border-style: solid; background-color: white; display: inline-block; border-radius: 20px;">
+
+    <div style="position: fixed; margin-left: -355px; bottom: 300px; background-color: white; border-radius: 20px; border-style: solid">
+        <ul style="width: 300px; display: inline-block;">
+            <li class="dropdown">
+                <button  class="dropbtn" onclick="window.location.href='/admin-statistics'">
+                    Статистика
+                </button>
+            </li>
+
+            <li class="dropdown">
+                <button  class="dropbtn" onclick="window.location.href='/admin-banners-and-sliders'">
+                    Баннеры/слайдеры
+                </button>
+            </li>
+
+            <li class="dropdown">
+                <button onclick="myFunction()" class="dropbtn">
+                    Фильмы
+                </button>
+                <div id="myDropdown" class="dropdown-content">
+                    <ul class="list">
+                        <li><a th:href="@{/admin-films}">Фильмы</a></li>
+                        <li><a th:href="@{/admin-film-page}">Создать фильм</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button onclick="myFunction1()" class="dropbtn">
+                    Кинотеатры
+                </button>
+                <div id="myDropdown1" class="dropdown-content">
+                    <ul class="list" >
+                        <li><a th:href="@{/admin-cinema-list}">Кинотеатры</a></li>
+                        <li><a th:href="@{/admin-cinema-create}">Создать кинотеатр</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button onclick="myFunction2()" class="dropbtn">
+                    Новости
+                </button>
+                <div id="myDropdown2" class="dropdown-content">
+                    <ul class="list">
+                        <li><a th:href="@{/admin-news}">Новости</a></li>
+                        <li><a th:href="@{/admin-news-page}">Создать новость</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button onclick="myFunction3()" class="dropbtn">
+                    Акции
+                </button>
+                <div id="myDropdown3" class="dropdown-content">
+                    <ul class="list">
+                        <li><a th:href="@{/admin-stocks}">Акции</a></li>
+                        <li><a th:href="@{/admin-stock-page}">Создать акцию</a></li>
+                    </ul>
+                </div>
+            </li>
+
+
+
+            <li class="dropdown">
+                <button onclick="myFunction4()" class="dropbtn">
+                    Страницы
+                </button>
+                <div id="myDropdown4" class="dropdown-content">
+                    <ul class="list" >
+                        <li><a th:href="@{/admin-pages}">Страницы</a></li>
+                        <li><a th:href="@{/admin-main-page}">Главная страница</a></li>
+                        <li><a th:href="@{/admin-about-cinema}">О кинотеатре</a></li>
+                        <li><a th:href="@{/admin-cafe-bar}">Кафе-бар</a></li>
+                        <li><a th:href="@{/admin-vip-hall}">VIP-зал</a></li>
+                        <li><a th:href="@{/admin-ad}">Реклама</a></li>
+                        <li><a th:href="@{/admin-children-room}">Детская комната</a></li>
+                        <li><a th:href="@{/admin-contacts}">Контакты</a></li>
+                    </ul>
+                </div>
+            </li>
+
+
+
+            <li class="dropdown">
+                <button onclick="myFunction5()" class="dropbtn">
+                    Пользователи
+                </button>
+                <div id="myDropdown5" class="dropdown-content">
+                    <ul class="list">
+                        <li><a th:href="@{/admin-users}">Пользователи</a></li>
+                        <li><a th:href="@{/admin-user-editing}">Создать пользователя</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="dropdown">
+                <button onclick="myFunction6()" class="dropbtn">
+                    Рассылка
+                </button>
+                <div id="myDropdown6" class="dropdown-content">
+                    <ul class="list">
+                        <li><a th:href="@{/admin-mailing}">Рассылка</a></li>
+                        <li><a th:href="@{/admin-mailing-user-choice}">Выбор пользователей</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
     </div>
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Sidebar -->
-        <div class="sidebar">
+    <div class="row g-3" style="display: inline-block; width: 1250px">
+        <div class="container mt-5 mb-5">
+            <div th:each="el : ${films}">
 
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                <form method="post" onsubmit="return checkform1(this)" enctype="multipart/form-data">
+                    <div style="display:inline-block; padding-left: 900px">
+
+                            <label><input th:checked="${el.isLanguage()} == true" name="language" class="form-check-input" style="margin-left: 100px" type="radio" value="1">Украинский</label>
+
+                            <label><input th:checked="${el.isLanguage()} == false" style="margin-left: 100px" name="language" class="form-check-input" type="radio" value="0">Русский</label>
+
+                    </div>
+                    <label for="title" class="form-label">Название фильма</label><br>
+                    <input type="text" name="title" id="title" placeholder="Название фильма" value="" class="form-control" th:value="${el.title}"/><br>
+
+
+
+                    <label for="description" class="form-label">Описание</label>
+                    <textarea name="description" id="description" placeholder="Текст" class="form-control" th:text="${el.description}"></textarea>
+
+                    <br><br><br>
+
+
+                    <div class="custom-file">
+                        <label class="custom-file-label" for="mainScreen">Главная картинка</label>
+                        <input required type="file" name="mainScreen" class="form-control1" id="mainScreen" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                        <img th:src="@{'/film-images/'+ ${el.mainScreen}}" id="prevImage" class="form-control" src="#" alt="Image" style="width: 150px; height: 200px;"/>
+                        <button onclick="resetFile()">Удалить</button>
+
+                    </div>
+                    <br><br><br>
+                    <div style="display:inline-block; width: 200px; margin-left: 15px">
+                        <input required type="file" name="screen1" class="form-control" id="screen1" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                        <img th:src="@{'/film-images/'+ ${el.screen1}}" id="prevImage1" src="#" alt="Image" style="width: 150px; height: 200px;"/>
+                        <button onclick="resetFile1()">Удалить</button>
+                    </div>
+
+                    <div style="display:inline-block; width: 200px; margin-left: 15px">
+                        <input required type="file" name="screen2" class="form-control" id="screen2" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                        <img th:src="@{'/film-images/'+ ${el.screen2}}" id="prevImage2" src="#" alt="Image" style="width: 150px; height: 200px;"/>
+                        <button onclick="resetFile2()">Удалить</button>
+                    </div>
+                    <div style="display:inline-block; width: 200px; margin-left: 15px">
+
+                        <input required type="file" name="screen3" class="form-control" id="screen3" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                        <img th:src="@{'/film-images/'+ ${el.screen3}}" id="prevImage3" src="#" alt="Image" style="width: 150px; height: 200px;"/>
+                        <button type="button" onclick="resetFile3()">Удалить</button>
+                    </div>
+                    <div style="display:inline-block; width: 200px; margin-left: 15px">
+                        <input required type="file" name="screen4" class="form-control" id="screen4" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                        <img th:src="@{'/film-images/'+ ${el.screen4}}" id="prevImage4" src="#" alt="Image" style="width: 150px; height: 200px;"/>
+                        <button type="button" onclick="resetFile4()" >Удалить</button>
+                    </div>
+                    <div style="display:inline-block; width: 200px; margin-left: 15px">
+                        <input required type="file" name="screen5" class="form-control" id="screen5" accept="image/png, image/jpeg, image/gif, image/jpg"/>
+                        <img th:src="@{'/film-images/'+ ${el.screen5}}" id="prevImage5" src="#" alt="Image" style=" width: 150px; height: 200px;"/>
+                        <button type="button" onclick="resetFile5()">Удалить</button>
+                    </div>
+
                     <br><br>
-                    <!-- Статистика начало-->
-                    <li class="nav-item">
-                        <a th:href="@{/admin-statistics}" class="nav-link">
-                            <p>
-                                Статистика
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <!-- Статистика конец -->
 
-                    <!-- Баннеры/Слайдеры начало-->
-                    <li class="nav-item">
-                        <a th:href="@{/admin-banners-and-sliders}" class="nav-link">
-                            <p>
-                                Баннеры/слайдеры
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                    </li>
-                    <!-- Баннеры/Слайдеры конец -->
+                    <label for="trailerUrl" class="form-label">Ссылка на трейлер</label><br>
+                    <input th:value="${el.trailerUrl}"  type="url" name="trailerUrl" id="trailerUrl" placeholder="Ссылка на трейлер" class="form-control"/>
+                    <br><br>
 
-                    <!-- Фильмы начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Фильмы
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-films}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список фильмов</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-film-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница фильма</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Фильмы, конец-->
 
-                    <!-- Кинотеатры начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Кинотеатры
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-cinema-list}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список кинотеатров</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-cinema-create}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Карточка кинотеатра</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-hall-card}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Карточка зала</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Кинотеатры, конец-->
+                    <div class="form-check" id="movieTypes">
+                        <div class="row">
+                            <div class="col-2">
+                                <label><input th:checked="${el.isMovieType2D()} == true" id="movieType2D" class="form-check-input" type="checkbox" name="movieType2D">2D</label>
+                                <input th:checked="${el.isMovieType2D()} == false" type="hidden" name="movieType2D" value="false">
+                            </div>
 
-                    <!-- Новости начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Новости
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-news}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список новостей</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-news-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница новости</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Новости, конец-->
+                            <div class="col-2">
+                                <label><input th:checked="${el.isMovieType3D()} == true" class="form-check-input" type="checkbox" name="movieType3D">3D</label>
+                                <input th:checked="${el.isMovieType3D()} == false" type="hidden" name="movieType3D" value="false">
+                            </div>
 
-                    <!-- Акции начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Акции
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-stocks}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список акций</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-stock-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Страница акции</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Акции, конец-->
+                            <div class="col-2">
+                                <label> <input th:checked="${el.isMovieTypeImax()} == true" class="form-check-input" type="checkbox" name="movieTypeImax">IMAX</label>
+                                <input th:checked="${el.isMovieTypeImax()} == false" type="hidden" name="movieTypeImax" value="false">
+                            </div>
 
-                    <!-- Страницы начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Страницы
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-pages}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список страниц</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-main-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Главная страница</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-about-cinema}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>О кинотеатре</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-main-page}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Кафе-бар</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-vip-hall}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>VIP-зал</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-ad}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Реклама</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-children-room}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Детская комната</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-contacts}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Контакты</p>
-                                </a>
-                            </li>
-
-                        </ul>
-                    </li>
-                    <!-- Страницы, конец-->
-
-                    <!-- Пользователи начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Пользователи
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-users}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Список пользователей</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-user-editing}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Редактирование пользователя</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Пользователи, конец-->
-
-                    <!-- Рассылка начало-->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <p>
-                                Рассылка
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a th:href="@{/admin-mailing}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Настройка рассылки</p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a th:href="@{/admin-user-choice}" class="nav-link">
-                                    <i class="bi bi-arrow-right-short"></i>
-                                    <p>Выбор пользователей</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Рассылка, конец-->
-                </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
-
-    <div style="margin-left: 18%; margin-right: 1%; margin-top: 5%; margin-bottom: 5%">
-
-<div>
-            <div class="container mt-5 mb-5" th:each="el : ${films}">
-
-            <form  th:method="post">
-                <div style="margin-left: 1000px">
-                    <div class="col-2">
-                        <label><input name="lang" class="form-check-input" style="margin-left: 100px" type="radio" value="1">Украинский</label>
-                    </div>
-                    <div class="col-2">
-                        <label><input style="margin-left: 100px" name="lang" class="form-check-input" type="radio" value="0">Русский</label>
-                    </div>
-                </div>
-
-                <label for="title" class="form-label">Название фильма</label><br>
-                <input type="text" name="title" id="title" th:value="${el.title}" placeholder="Название фильма" value="" class="form-control"/><br>
-
-                <br><br><br>
-
-                <label for="description" class="form-label">Описание</label>
-                <textarea th:text="${el.description}" name="description" id="description" placeholder="Текст"/>
-
-                <br><br><br>
-
-                <div class="custom-file">
-                 <!--   <img th:attr="src=@{|image/${el.mainScreen}|}" style="width: 120px; height: 120px"/> -->
-                    <label class="custom-file-label" for="mainScreen">Выберите картинку</label>
-                    <input type="file" name="mainScreen" class="custom-file-input" id="mainScreen" accept="image/png, image/jpeg, image/gif">
-                    <img id="prevImage" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                </div>
-
-                    <br><br><br>
-
-                            <input type="file" name="screen1" class="form-control" id="screen1" accept="image/png, image/jpeg, image/gif"/>
-                            <img id="prevImage1" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                            <br><br>
-                            <input type="file" name="screen2" class="form-control" id="screen2" accept="image/png, image/jpeg, image/gif"/>
-                            <img id="prevImage2" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                            <br><br>
-                            <input type="file" name="screen3" class="form-control" id="screen3" accept="image/png, image/jpeg, image/gif"/>
-                            <img id="prevImage3" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                            <br><br>
-                            <input type="file" name="screen4" class="form-control" id="screen4" accept="image/png, image/jpeg, image/gif"/>
-                            <img id="prevImage4" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-                            <br><br>
-                            <input type="file" name="screen5" class="form-control" id="screen5" accept="image/png, image/jpeg, image/gif"/>
-                            <img id="prevImage5" src="#" alt="Image" style=" width: 190px; height: 100px;"/>
-
-                    <br><br><br>
-
-                            <label for="trailerUrl" class="form-label">Ссылка на трейлер</label><br>
-                            <input type="text" name="trailerUrl" id="trailerUrl" th:value="${el.trailerUrl}" placeholder="Ссылка на трейлер" class="form-control"/>
-
-                     <br><br>
-
-                <div class="form-check" id="movieTypes">
-                    <div class="row">
-                        <div class="col-2">
-                            <label>
-                                <input id="movieType2D" class="form-check-input" type="checkbox" name="movieType2D" th:value="${el.movieType2D}">2D
-                            </label>
-                            <input type="hidden" name="movieType2D" value="false">
-                        </div>
-
-                        <div class="col-2">
-                            <label>
-                                <input class="form-check-input" type="checkbox" name="movieType3D" th:value="${el.movieType3D}">3D
-                            </label>
-                            <input type="hidden" name="movieType3D" value="false" >
-                        </div>
-
-                        <div class="col-2">
-                            <label>
-                                <input class="form-check-input" type="checkbox" name="movieTypeImax" th:value="${el.movieTypeImax}">IMAX
-                            </label>
-                            <input type="hidden" name="movieTypeImax" value="false">
+                            <div class="col-2" style="margin-left: 180px">
+                                <label>Текущий фильм</label><input th:checked="${el.isCurrentOrSoon()} == true" name="currentOrSoon" class="form-check-input" style="margin-left: 10px" type="radio" value="1">
+                            </div>
+                            <div class="col-2">
+                                <label><input th:checked="${el.isCurrentOrSoon()} == false" name="currentOrSoon" class="form-check-input" type="radio" value="0">Скоро в прокате</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!--  -->
 
-                <br><br>
 
-                <p>SEO блок:</p>
+                    <br><br>
 
-                <label for="seoUrl" class="form-label" >URL:</label><br>
-                <input type="text" name="seoUrl" id="seoUrl" placeholder="URL" th:value="${el.seoUrl}" class="form-control"/><br>
-                <label for="seoTitle" class="form-label">Title:</label><br>
-                <input type="text" name="seoTitle" id="seoTitle" placeholder="Title" th:value="${el.seoTitle}" class="form-control"/><br>
-                <label for="seoKeywords" class="form-label">Keywords:</label><br>
-                <input type="text" name="seoKeywords" id="seoKeywords" placeholder="word" th:value="${el.seoKeywords}" class="form-control"/><br>
+                    <p>SEO блок:</p>
 
-                <label for="seoDescription" class="form-label">Description:</label>
-                <textarea name="seoDescription" id="seoDescription" placeholder="Description" class="form-control" th:text="${el.seoDescription}"></textarea>
+                    <label for="seoUrl" class="form-label">URL:</label><br>
+                    <input required th:value="${el.seoUrl}" type="url" name="seoUrl" id="seoUrl" placeholder="URL" value="" class="form-control"/><br>
+                    <label for="seoTitle" class="form-label">Title:</label><br>
+                    <input required th:value="${el.seoTitle}" type="text" name="seoTitle" id="seoTitle" placeholder="Title" value="" class="form-control"/><br>
+                    <label for="seoKeywords" class="form-label">Keywords:</label><br>
+                    <input required th:value="${el.seoKeywords}" type="text" name="seoKeywords" id="seoKeywords" placeholder="word" value="" class="form-control"/><br>
 
-                <br><br>
+                    <label for="seoDescription" class="form-label">Description:</label>
+                    <textarea required th:text="${el.seoDescription}" name="seoDescription" id="seoDescription" placeholder="Description" class="form-control"></textarea>
 
-                <button type="submit" class="btn btn-success" style="margin-right: 400px; margin-left: 100px; width: 200px" >Обновить фильм</button>
+                    <br><br>
+                    <div id="error" style="color:red;"></div>
 
-            </form>
-                <br><br><br>
-                <form th:action="'/admin-film-edit/'+${el.id}+'/remove'" method="post">
-                    <button class="btn btn-warning" type="submit" style="margin-left: 100px; width: 200px"> Удалить фильм </button>
+                    <button type="submit" class="btn btn-success" style="margin-left: 540px" >Сохранить</button>
                 </form>
-            </div>
+
+                <form th:action="'/admin-film-edit/'+${el.id}+'/remove'" method="post">
+                    <button title="Удалить к ебеням" type="submit"><i class="bi bi-trash-fill"></i></button>
+                </form>
 </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-            <script>
-            function readURL(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#prevImage').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#mainScreen").change(function() {
-                readURL(this);
-            });
-
-
-            function readURL1(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#prevImage1').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#screen1").change(function() {
-                readURL1(this);
-            });
-
-
-
-            function readURL2(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#prevImage2').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#screen2").change(function() {
-                readURL2(this);
-            });
-
-
-
-            function readURL3(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#prevImage3').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#screen3").change(function() {
-                readURL3(this);
-            });
-
-
-
-            function readURL4(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#prevImage4').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#screen4").change(function() {
-                readURL4(this);
-            });
-
-            function readURL5(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(e) {
-                        $('#prevImage5').attr('src', e.target.result);
-                    }
-
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
-            $("#screen5").change(function() {
-                readURL5(this);
-            });
-
-            /*скрипт, отвечающий за предпросмотр картинки*/
-        </script>
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
         </div>
+    </div>
 </div>
-<!-- REQUIRED SCRIPTS -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--Добавление и удаление изображения-->
+<script>
+    function resetFile() {
+        const file = document.querySelector('#mainScreen');
+        file.value = '';
+        document.getElementById("prevImage").src="#";
+    }
+
+
+    function resetFile1() {
+        const file1 = document.querySelector('#screen1');
+        file1.value = '';
+        document.getElementById("prevImage1").src="#";
+    }
+
+    function resetFile2() {
+        const file2 = document.querySelector('#screen2');
+        file2.value = '';
+        document.getElementById("prevImage2").src="#";
+    }
+
+    function resetFile3() {
+        const file3 = document.querySelector('#screen3');
+        file3.value = '';
+        document.getElementById("prevImage3").src="#";
+    }
+
+    function resetFile4() {
+        const file4 = document.querySelector('#screen4');
+        file4.value = '';
+        document.getElementById("prevImage4").src="#";
+    }
+
+    function resetFile5() {
+        const file5 = document.querySelector('#screen5');
+        file5.value = '';
+        document.getElementById("prevImage5").src="#";
+        document.getElementById("screen5").value=null;
+    }
+</script>
+
+<script>
+    /*скрипт, отвечающий за проверку полей*/
+    function checkform1(element) {
+        var title = element.title.value;
+        var description = element.description.value;
+        var fail = "";
+        if (title.length < 1 || title.length >50)
+            fail = "Пожалуйста, введите название фильма (от 1 до 50 символов)";
+        else if (description.length < 1)
+            fail = "Пожалуйста, введите описание фильма (до 1600 символов)"
+        if (fail != "") {
+            document.getElementById('error').innerHTML = fail;
+            return false;
+        } else {
+            return true;
+        }
+    }
+</script>
+
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#prevImage').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#mainScreen").change(function() {
+        readURL(this);
+    });
+
+
+    function readURL1(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#prevImage1').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#screen1").change(function() {
+        readURL1(this);
+    });
+
+
+
+    function readURL2(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#prevImage2').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#screen2").change(function() {
+        readURL2(this);
+    });
+
+
+
+    function readURL3(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#prevImage3').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#screen3").change(function() {
+        readURL3(this);
+    });
+
+
+
+    function readURL4(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#prevImage4').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#screen4").change(function() {
+        readURL4(this);
+    });
+
+    function readURL5(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#prevImage5').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#screen5").change(function() {
+        readURL5(this);
+    });
+    /*скрипт, отвечающий за предпросмотр картинки*/</script>
+
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="plugins/jquery-ui/jquery-ui.min.js"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="plugins/raphael/raphael.min.js"></script>
-<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
 
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard2.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script>
 
+
+    function myFunction() {
+        document.getElementById("myDropdown").classList.toggle("show");
+    }
+    function myFunction1() {
+        document.getElementById("myDropdown1").classList.toggle("show");
+    }
+    function myFunction2() {
+        document.getElementById("myDropdown2").classList.toggle("show");
+    }
+    function myFunction3() {
+        document.getElementById("myDropdown3").classList.toggle("show");
+    }
+    function myFunction4() {
+        document.getElementById("myDropdown4").classList.toggle("show");
+    }
+    function myFunction5() {
+        document.getElementById("myDropdown5").classList.toggle("show");
+    }
+    function myFunction6() {
+        document.getElementById("myDropdown6").classList.toggle("show");
+    }
+    // Закрыть раскрывающийся список, если пользователь щелкнет за его пределами.
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            var i;
+            for (i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }</script>
 </body>
 </html>
-

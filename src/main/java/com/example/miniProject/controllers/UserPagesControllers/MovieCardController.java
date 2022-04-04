@@ -123,13 +123,33 @@ public class MovieCardController {
         return "redirect:/contacts";
     }
 
-    @GetMapping("/movie-card/{cinemaId}/vip-hall")
+    @GetMapping("/movie-card/vip-hall")
     public String movieCardRedirectToVipHall(){
         return "redirect:/vip-hall";
     }
 
-    @GetMapping("/movie-card/{cinemaId}/mobile-apps")
+    @GetMapping("/movie-card/mobile-apps")
     public String movieCardRedirectToMobileApps(){
         return "redirect:/mobile-apps";
+    }
+
+    @GetMapping("/movie-card/client-section")
+    public String movieCardRedirectToClientSection(){
+        return "redirect:/client-section";
+    }
+
+    @GetMapping("/movie-card/about-cinema")
+    public String movieCardRedirectToAboutCinema(){
+        return "redirect:/about-cinema";
+    }
+
+    @GetMapping("/movie-card/children-room")
+    public String movieCardRedirectToChildrenRomm(){
+        return "redirect:/children-room";
+    }
+
+    @GetMapping("/movie-card/admin-statistics")
+    public String movieCardRedirectToAdminPanel(){
+        return "redirect:/admin-statistics";
     }
 }

@@ -59,62 +59,72 @@ public class SomeNewPageController {
     }
 
     @GetMapping("/some-new-page/main-user-page")
-    public String hallCardRedirectToMainUserPage(){
+    public String someNewPageRedirectToMainUserPage(){
         return "redirect:/main-user-page";
     }
 
+    @GetMapping("/some-new-page/about-cinema")
+    public String someNewPageRedirectToAboutCinema(){
+        return "redirect:/about-cinema";
+    }
+
+    @GetMapping("/some-new-page/client-section")
+    public String someNewPageRedirectToClientSection(){
+        return "redirect:/client-section";
+    }
+
     @GetMapping("/some-new-page/poster")
-    public String hallCardRedirectToPoster(){
+    public String someNewPageRedirectToPoster(){
         return "redirect:/poster";
     }
 
     @GetMapping("/some-new-page/timetable")
-    public String hallCardRedirectToTimetable(){
+    public String someNewPageRedirectToTimetable(){
         return "redirect:/timetable";
     }
 
     @GetMapping("/some-new-page/soon")
-    public String hallCardRedirectToSoon(){
+    public String someNewPageRedirectToSoon(){
         return "redirect:/soon";
     }
 
     @GetMapping("/some-new-page/cinemas")
-    public String hallCardRedirectToCinemas(){
+    public String someNewPageRedirectToCinemas(){
         return "redirect:/cinemas";
     }
 
     @GetMapping("/some-new-page/stock")
-    public String hallCardRedirectToStock(){
+    public String someNewPageRedirectToStock(){
         return "redirect:/stock";
     }
 
     @GetMapping("/some-new-page/news")
-    public String hallCardRedirectToNews(){
+    public String someNewPageRedirectToNews(){
         return "redirect:/news";
     }
 
     @GetMapping("/some-new-page/ad")
-    public String hallCardRedirectToAd(){
+    public String someNewPageRedirectToAd(){
         return "redirect:/ad";
     }
 
     @GetMapping("/some-new-page/cafe-bar")
-    public String hallCardRedirectToCafeBar(){
+    public String someNewPageRedirectToCafeBar(){
         return "redirect:/cafe-bar";
     }
 
     @GetMapping("/some-new-page/contacts")
-    public String hallCardRedirectToContacts(){
+    public String someNewPageRedirectToContacts(){
         return "redirect:/contacts";
     }
 
     @GetMapping("/some-new-page/vip-hall")
-    public String vipHallUserSideFromSomeNewPage(){
+    public String someNewPageUserSideFromSomeNewPage(){
         return "redirect:/vip-hall";
     }
 
     @GetMapping("/some-new-page/mobile-apps")
-    public String mobileAppsFromSomeNewPage(){
+    public String someNewPageFromSomeNewPage(){
         return "redirect:/mobile-apps";
     }
 }

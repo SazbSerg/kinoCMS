@@ -43,7 +43,7 @@
     </style>
 </head>
 <th:block th:each="bgb : ${backgroundBanner}">
-    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <body style="background-color: grey;" th:background="'/background-banner-image/'+${bgb.getBackgroundBanner()}">
     <header th:insert="blocks/header.html :: header"></header>
     <!--Номера телефонов -->
     <div th:each="mainPage : ${mainPages}" style="margin-left: 90%; color: whitesmoke; font-size: large">
@@ -56,15 +56,15 @@
         <div style="width: 1200px; margin-left: 1.25%">
             <div th:each="childrenRoom : ${childrenRooms}" style="display:inline-block; margin-left: 25px; margin-right: 15px; margin-top: 50px">
                 <div>
-                    <img th:attr="src=@{|image/${childrenRoom.mainImage}|}" style="width: 1060px; height: 400px"/>
+                    <img th:attr="src=@{|/children-room-images/${childrenRoom.mainImage}|}" style="width: 1060px; height: 400px"/>
                     <p th:text="${childrenRoom.title}"></p>
                     <p th:text="${childrenRoom.description}"></p>
                     <div style="display:inline-block; width: 800px">
-                        <div style="display: inline-block"><img th:attr="src=@{|/image/${childrenRoom.image1}|}" style="width: 250px; height: 280px"/></div>
-                        <div style="display: inline-block"><img th:attr="src=@{|/image/${childrenRoom.image2}|}" style="width: 250px; height: 280px"/></div>
-                        <div style="display: inline-block"><img th:attr="src=@{|/image/${childrenRoom.image3}|}" style="width: 250px; height: 280px"/></div>
-                        <div style="display: inline-block"><img th:attr="src=@{|/image/${childrenRoom.image4}|}" style="width: 250px; height: 280px"/></div>
-                        <div style="display: inline-block"><img th:attr="src=@{|/image/${childrenRoom.image5}|}" style="width: 250px; height: 280px"/></div>
+                        <div style="display: inline-block"><img th:attr="src=@{|/children-room-images/${childrenRoom.image1}|}" style="width: 250px; height: 280px"/></div>
+                        <div style="display: inline-block"><img th:attr="src=@{|/children-room-images/${childrenRoom.image2}|}" style="width: 250px; height: 280px"/></div>
+                        <div style="display: inline-block"><img th:attr="src=@{|/children-room-images/${childrenRoom.image3}|}" style="width: 250px; height: 280px"/></div>
+                        <div style="display: inline-block"><img th:attr="src=@{|/children-room-images/${childrenRoom.image4}|}" style="width: 250px; height: 280px"/></div>
+                        <div style="display: inline-block"><img th:attr="src=@{|/children-room-images/${childrenRoom.image5}|}" style="width: 250px; height: 280px"/></div>
                     </div>
                     <div style="display: inline-block; width: 250px; border-style: groove; height: 500px;">
                         <p>SEO</p>
@@ -75,19 +75,19 @@
                         <div class="slider__wrapper">
                             <div class="slider__items">
                                 <div class="slider__item">
-                                    <img class="img-fluid" th:src="@{'/image/'+ ${fff.image1}}" alt="..." width="400" height="200"  loading="lazy">
+                                    <img class="img-fluid" th:src="@{'/children-room-images/'+ ${fff.image1}}" alt="..." width="400" height="200"  loading="lazy">
                                 </div>
                                 <div class="slider__item">
-                                    <img class="img-fluid" th:src="@{'/image/'+ ${fff.image2}}" alt="..." width="400" height="200"  loading="lazy">
+                                    <img class="img-fluid" th:src="@{'/children-room-images/'+ ${fff.image2}}" alt="..." width="400" height="200"  loading="lazy">
                                 </div>
                                 <div class="slider__item">
-                                    <img class="img-fluid" th:src="@{'/image/'+ ${fff.image3}}" alt="..." width="400" height="200"  loading="lazy">
+                                    <img class="img-fluid" th:src="@{'/children-room-images/'+ ${fff.image3}}" alt="..." width="400" height="200"  loading="lazy">
                                 </div>
                                 <div class="slider__item">
-                                    <img class="img-fluid" th:src="@{'/image/'+ ${fff.image4}}" alt="..." width="400" height="200"  loading="lazy">
+                                    <img class="img-fluid" th:src="@{'/children-room-images/'+ ${fff.image4}}" alt="..." width="400" height="200"  loading="lazy">
                                 </div>
                                 <div class="slider__item">
-                                    <img class="img-fluid" th:src="@{'/image/'+ ${fff.image5}}" alt="..." width="400" height="200"  loading="lazy">
+                                    <img class="img-fluid" th:src="@{'/children-room-images/'+ ${fff.image5}}" alt="..." width="400" height="200"  loading="lazy">
                                 </div>
                             </div>
                         </div>

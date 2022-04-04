@@ -7,7 +7,7 @@
     <style th:insert="blocks/style.html :: style"></style>
 </head>
 <th:block th:each="bgb : ${backgroundBanner}">
-    <body style="background-color: grey;" th:background="'/image/'+${bgb.getBackgroundBanner()}">
+    <body style="background-color: grey;" th:background="'/background-banner-image/'+${bgb.getBackgroundBanner()}">
     <header th:insert="blocks/header.html :: header"></header>
     <!--Номера телефонов -->
     <div th:each="mainPage : ${mainPages}" style="margin-left: 90%; color: whitesmoke; font-size: large">
@@ -22,7 +22,7 @@
 <hr>
             <div th:each="contact : ${contacts}">
                          <div><h4 th:text="${contact.title}"></h4></div>
-                        <div><img style="width: 200px; height: 200px" th:attr="src=@{|image/${contact.logo}|}"/></div>
+                        <div><img style="width: 200px; height: 200px" th:attr="src=@{|/contacts-images/${contact.logo}|}"/></div>
                          <div><p th:text="${contact.adress}"></p></div>
                          <div><iframe th:src="${contact.coordinates}" width="400" height="300" style="border:1px;" allowfullscreen="" loading="lazy"></iframe></div>
                <hr>

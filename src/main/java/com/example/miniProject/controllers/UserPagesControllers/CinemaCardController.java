@@ -65,72 +65,87 @@ public class CinemaCardController {
     }
 
     @GetMapping("/cinema-card/main-user-page")
-    public String hallCardRedirectToMainUserPage(){
+    public String cinemaCardRedirectToMainUserPage(){
         return "redirect:/main-user-page";
     }
 
     @GetMapping("/cinema-card/poster")
-    public String hallCardRedirectToPoster(){
+    public String cinemaCardRedirectToPoster(){
         return "redirect:/poster";
     }
 
     @GetMapping("/cinema-card/timetable")
-    public String hallCardRedirectToTimetable(){
+    public String cinemaCardRedirectToTimetable(){
         return "redirect:/timetable";
     }
 
     @GetMapping("/cinema-card/soon")
-    public String hallCardRedirectToSoon(){
+    public String cinemaCardRedirectToSoon(){
         return "redirect:/soon";
     }
 
     @GetMapping("/cinema-card/cinemas")
-    public String hallCardRedirectToCinemas(){
+    public String cinemaCardRedirectToCinemas(){
         return "redirect:/cinemas";
     }
 
     @GetMapping("/cinema-card/stock")
-    public String hallCardRedirectToStock(){
+    public String cinemaCardRedirectToStock(){
         return "redirect:/stock";
     }
 
     @GetMapping("/cinema-card/news")
-    public String hallCardRedirectToNews(){
+    public String cinemaCardRedirectToNews(){
         return "redirect:/news";
     }
 
+    @GetMapping("/cinema-card/about-cinema")
+    public String cinemaCardRedirectToAboutCinema(){
+        return "redirect:/about-cinema";
+    }
+
     @GetMapping("/cinema-card/ad")
-    public String hallCardRedirectToAd(){
+    public String cinemaCardRedirectToAd(){
         return "redirect:/ad";
     }
 
     @GetMapping("/cinema-card/cafe-bar")
-    public String hallCardRedirectToCafeBar(){
+    public String cinemaCardRedirectToCafeBar(){
         return "redirect:/cafe-bar";
     }
 
     @GetMapping("/cinema-card/contacts")
-    public String hallCardRedirectToContacts(){
+    public String cinemaCardRedirectToContacts(){
         return "redirect:/contacts";
     }
 
     @GetMapping("/cinema-card/children-room")
-    public String hallCardRedirectToChildrenRomm(){
+    public String cinemaCardRedirectToChildrenRomm(){
         return "redirect:/children-room";
     }
 
     @GetMapping("/cinema-card/vip-hall")
-    public String hallCardRedirectToVipHall(){
+    public String cinemaCardRedirectToVipHall(){
         return "redirect:/vip-hall";
     }
 
     @GetMapping("/cinema-card/some-new-page")
-    public String someNewPageUserSide(){
+    public String cinemaCardRedirectToSomeNewPageUserSide(){
         return "redirect:/some-new-page";
     }
 
     @GetMapping("/cinema-card/mobile-apps")
     public String mobileAppsFromCinemaCard(){
         return "redirect:/mobile-apps";
+    }
+
+    @GetMapping("/cinema-card/admin-statistics")
+    public String cinemaCardRedirectToAdminPanel(){
+        return "redirect:/admin-statistics";
+    }
+
+    @GetMapping("/cinema-card/client-section")
+    public String cinemaCardRedirectToClientSection(){
+        return "redirect:/client-section";
     }
 }

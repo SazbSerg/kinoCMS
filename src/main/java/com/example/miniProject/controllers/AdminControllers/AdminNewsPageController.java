@@ -1,34 +1,46 @@
 package com.example.miniProject.controllers.AdminControllers;
-import com.example.miniProject.models.News;
-import com.example.miniProject.repo.NewsRepository;
+import com.example.miniProject.services.adminNewsService.AdminNewsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 import java.sql.Date;
 
 @Controller
 public class AdminNewsPageController {
 
     @Autowired
-    private NewsRepository newsRepository;
+    private AdminNewsService adminNewsService;
+
 
     @GetMapping("/admin-news-page")
     public String getNews() {
         return "/Admin/News/admin-news-page";
     }
 
+
     @PostMapping("/admin-news-page")
-    public String postNews(@RequestParam String title, @RequestParam String description, @RequestParam Date publicDate,
-                              @RequestParam boolean language, @RequestParam boolean status,
-                              @RequestParam String mainImage, @RequestParam String image1, @RequestParam String image2,
-                              @RequestParam String image3, @RequestParam String image4, @RequestParam String image5,
-                              @RequestParam String videoLink, @RequestParam String seoUrl, @RequestParam String seoTitle,
-                              @RequestParam String seoKeywords, @RequestParam String seoDescription){
-        News news = new News(title, description, publicDate, language, status, mainImage, image1, image2, image3, image4, image5,
-                videoLink, seoUrl, seoTitle, seoKeywords, seoDescription);
-        newsRepository.save(news);
+    public String postNews(@RequestParam String title,
+                           @RequestParam String description,
+                           @RequestParam Date publicDate,
+                           @RequestParam boolean language,
+                           @RequestParam boolean status,
+                           @RequestParam("mainImage") MultipartFile file,
+                           @RequestParam("image1") MultipartFile file1,
+                           @RequestParam("image2") MultipartFile file2,
+                           @RequestParam("image3") MultipartFile file3,
+                           @RequestParam("image4") MultipartFile file4,
+                           @RequestParam("image5") MultipartFile file5,
+                           @RequestParam String videoLink,
+                           @RequestParam String seoUrl,
+                           @RequestParam String seoTitle,
+                           @RequestParam String seoKeywords,
+                           @RequestParam String seoDescription) throws IOException {
+        adminNewsService.saveNewsData(title, description, publicDate, language, status, file, file1, file2, file3, file4, file5, videoLink, seoUrl, seoTitle, seoKeywords, seoDescription);
         return "redirect:/admin-news";
     }
 }

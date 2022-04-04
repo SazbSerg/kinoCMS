@@ -126,4 +126,24 @@ public class HallCardController {
     public String hallCardRedirectToMobileApps(){
         return "redirect:/mobile-apps";
     }
+
+    @GetMapping("/hall-card/{cinemaId}/admin-statistics")
+    public String hallCardRedirectToAdminPanel(){
+        return "redirect:/admin-statistics";
+    }
+
+    @GetMapping("/hall-card/{cinemaId}/client-section")
+    public String hallCardRedirectToClientSection(){
+        return "redirect:/client-section";
+    }
+
+    @GetMapping("/hall-card/{cinemaId}/about-cinema")
+    public String hallCardRedirectToAboutCinema(){
+        return "redirect:/about-cinema";
+    }
+
+    @GetMapping("/hall-card/{cinemaId}/children-room")
+    public String hallCardRedirectToChildrenRomm(){
+        return "redirect:/children-room";
+    }
 }
