@@ -1,0 +1,44 @@
+<div th:fragment="footer" style="margin-bottom: 0">
+    <footer class="row row-cols-5 py-5 my-5 border-top">
+        <div class="col">
+            <a href="/" class="d-flex align-items-center mb-3 link-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+
+        </div>
+
+        <div style="width: 600px;">
+            <h5>Мобильные приложения</h5>
+            <br>
+            <img src="/image/PictGoogleApple/Google_Play_Store_badge_EN.svg" style="height: 70px; width: auto">
+            <img src="/image/PictGoogleApple/png-transparent-apple-on-the-app-store-screenshot-iphone-app-store-google-play-store-electronics-text-logo.png" style="height: 70px; width: auto">
+            <br><br><br><br>
+            <h6>Разработка сайтов: AVADA-MEDIA</h6>
+        </div>
+
+        <div class="col">
+            <h5>Афиша</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a th:href="@{timetable}" class="nav-link p-0 text-muted">Расписание</a></li>
+                <li class="nav-item mb-2"><a th:href="@{soon}" class="nav-link p-0 text-muted">Скоро в прокате</a></li>
+                <li class="nav-item mb-2"><a th:href="@{cinemas}" class="nav-link p-0 text-muted">Кинотеатры</a></li>
+                <li class="nav-item mb-2"><a th:href="@{stock}" class="nav-link p-0 text-muted">Акции</a></li>
+            </ul>
+        </div>
+
+        <div class="col">
+            <h5>О кинотеатре</h5>
+            <ul class="nav flex-column">
+                <li class="nav-item mb-2"><a th:href="@{news}" class="nav-link p-0 text-muted">Новости</a></li>
+                <li class="nav-item mb-2"><a th:href="@{ad}" class="nav-link p-0 text-muted">Реклама</a></li>
+                <li class="nav-item mb-2"><a th:href="@{cafe-bar}" class="nav-link p-0 text-muted">Кафе-Бар</a></li>
+                <li class="nav-item mb-2"><a th:href="@{contacts}" class="nav-link p-0 text-muted">Контакты</a></li>
+            </ul>
+        </div>
+    </footer>
+    <footer class="py-3 my-4">
+
+
+        <p class="text-center text-muted">©KinoCMS 2022, All rights reserved</p>
+    </footer>
+    </div>

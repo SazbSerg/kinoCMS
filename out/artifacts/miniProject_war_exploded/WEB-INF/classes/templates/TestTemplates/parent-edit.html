@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:each="parent: ${parents}">
+<form method="post">
+    <input type="text" name="parentField" th:value="${parent.parentField}">
+    <input type="submit">
+</form>
+    <br> <br> <br>
+<hr style="color: #0a53be;">
+        <br> <br> <br>
+<p>Список залов</p>
+        <br>
+<div th:each="childrenlist: ${parent.getChildren()}">
+    <input th:value="${childrenlist.childField}">
+
+    <div>
+        <br>
+        <form th:action="'/parent-edit/'+${parent.id}+'/'+${childrenlist.getId()}+'/delete'" method="post">
+            <button type="submit">Delete hall</button>
+        </form>
+        <br><br>
+    </div>
+</div>
+    <button type="button" style="margin-left: 300px"><a th:href="'/child-create/'+${parent.id}"> Create hall</a></button>
+    <br>
+    <button type="button"><a href="/parents-list">Return Cinema List</a></button>
+
+</div>
+</body>
+</html>
